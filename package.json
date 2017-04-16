@@ -13,6 +13,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-cssnano": "^2.1.0",
+    "gulp-data": "^1.2.1",
     "gulp-header": "^1.7.1",
     "gulp-jshint": "^2.0.0",
     "gulp-nunjucks-render": "^2.2.1",
@@ -24,7 +25,8 @@
     "sass-module-importer": "^1.4.0"
   },
   "dependencies": {
-    "bootstrap": "4.0.0-alpha.6"
+    "bootstrap": "4.0.0-alpha.6",
+    "front-matter": "^2.1.2"
   },
   "description": "A front-end theme based on Bootstrap 4 using Gulp and Sass.",
   "bugs": {
@@ -33,7 +35,7 @@
   "homepage": "https://github.com/wosevision/gbphb",
   "main": "gulpfile.js",
   "scripts": {
-  	"start": "yarn && gulp",
+    "start": "yarn && gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
