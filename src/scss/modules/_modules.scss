@@ -1,0 +1,21 @@
+body {
+	counter-reset: modulenum;
+}
+
+.module-container {
+	padding-top: 100px;
+	padding-bottom: 100px;
+
+	&:nth-child(even) {
+		background-color: $grey-tint-2;
+	}
+
+	.giant-number {
+		&.counter {
+			&::before {
+				counter-increment: modulenum;
+				content: '0' counter(modulenum);
+			}
+		}
+	}
+}

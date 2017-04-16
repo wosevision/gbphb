@@ -85,7 +85,7 @@ a {
 
 	&:focus,
 	&:hover {
-		color: $primary-color-dark-1;
+		color: $secondary-color;
 		text-decoration: none;
 	}
 }
@@ -93,10 +93,19 @@ a {
 blockquote, 
 .blockquote {
 	padding-left: 1em;
-	border-left: solid 1px $primary-color;
+	border-left: solid 1px $secondary-color;
 	font-size: 2.14em;
 	line-height: 1.33em;
+	font-weight: 300;
 	color: $primary-color-dark-1;
+	
+	cite,
+	.cite {
+		display: block;
+		font-style: normal;
+		font-size: 1rem;
+		text-align: right;
+	}
 }
 
 
@@ -113,4 +122,11 @@ blockquote,
 
 .footnote {
 	font-size: 0.86em;
+}
+
+.giant-number {
+	color: $grey;
+	font-size: 7.14em;
+	font-family: $font-family-sans-serif;
+	font-weight: 700;
 }
