@@ -86,6 +86,14 @@ gulp.task('templates', function() {
 		.pipe(gulp.dest('app'));
 });
 
+/**
+ * Copy static image assets to `app/assets`
+ */
+gulp.task('images', function() {
+	return gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|svg)')
+		.pipe(gulp.dest('app/assets/img'));
+});
+
 gulp.task('browser-sync', function() {
 	browserSync.init(null, {
 		server: {
@@ -98,7 +106,7 @@ gulp.task('bs-reload', function() {
 	browserSync.reload();
 });
 
-gulp.task('default', ['css', 'js', 'templates', 'browser-sync'], function() {
+gulp.task('default', ['images', 'css', 'js', 'templates', 'browser-sync'], function() {
 	gulp.watch('src/scss/**/*.scss', ['css']);
 	gulp.watch('src/js/*.js', ['js']);
 	gulp.watch('src/**/*.html', ['templates', 'bs-reload']);
