@@ -14,7 +14,10 @@ const gulp = require('gulp'),
 			fm = require('front-matter'),
 			package = require('./package.json');
 
-
+/**
+ * Dynamically append package info to top of
+ * generated files.
+ */
 const banner = [
 	'/*!\n' +
 	' * <%= package.name %>\n' +
@@ -27,6 +30,17 @@ const banner = [
 	'\n'
 ].join('');
 
+/**
+ * Generate CSS assets from Sass source files. This task:
+ * - inits sourcemaps
+ * - inits sass-module-importer for node_modules Sass @imports
+ * - autoprefixes
+ * - writes an unminified .css file
+ * - minifies .css and renames to .min.css
+ * - injects package info banner
+ * - writes minified file with sourcemaps to `app/assets`
+ * - launches browserSync
+ */
 gulp.task('css', function() {
 	return gulp.src('src/scss/style.scss')
 		.pipe(sourcemaps.init())
@@ -56,8 +70,15 @@ gulp.task('js', function() {
 		.pipe(browserSync.reload({stream:true, once: true}));
 });
 
+/**
+ * Generates static HTML assets from Nunjucks templates. This task:
+ * - reads page templates from `src/pages`
+ * - reads and injects front-matter data from piped files
+ * - renders Nunjucks templates in `src/templates`
+ * - writes assets
+ */
 gulp.task('templates', function() {
-	return gulp.src('src/index.+(html|nunjucks)')
+	return gulp.src('src/index.+(html|nunjucks|njk)')
 		.pipe(data(file => fm(String(file.contents)).attributes))
 		.pipe(nunjucksRender({
 			path: ['src/templates']
