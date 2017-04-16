@@ -1,17 +1,3 @@
-    sass = require('gulp-sass'),
-    browserSync = require('browser-sync'),
-    autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
-    jshint = require('gulp-jshint'),
-    header  = require('gulp-header'),
-    rename = require('gulp-rename'),
-    cssnano = require('gulp-cssnano'),
-    sourcemaps = require('gulp-sourcemaps'),
-		nunjucksRender = require('gulp-nunjucks-render'),
-		moduleImporter = require('sass-module-importer');
-    package = require('./package.json');
-var gulp = require('gulp'),
-
 const gulp = require('gulp'),
 			sass = require('gulp-sass'),
 			browserSync = require('browser-sync'),
@@ -23,6 +9,7 @@ const gulp = require('gulp'),
 			cssnano = require('gulp-cssnano'),
 			sourcemaps = require('gulp-sourcemaps'),
 			nunjucksRender = require('gulp-nunjucks-render'),
+			moduleImporter = require('sass-module-importer'),
 			package = require('./package.json');
 
 
@@ -41,7 +28,7 @@ const banner = [
 gulp.task('css', function() {
 	return gulp.src('src/scss/style.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
 		.pipe(autoprefixer('last 4 version'))
 		.pipe(gulp.dest('app/assets/css'))
 		.pipe(cssnano())
