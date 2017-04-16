@@ -1,3 +1,5 @@
+//=require swiper/dist/js/swiper.js 
+
 (function ($, window, document, undefined) {
 
   'use strict';

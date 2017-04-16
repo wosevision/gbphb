@@ -26,7 +26,9 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
-    "front-matter": "^2.1.2"
+    "front-matter": "^2.1.2",
+    "gulp-include": "^2.3.1",
+    "swiper": "^3.4.2"
   },
   "description": "A front-end theme based on Bootstrap 4 using Gulp and Sass.",
   "bugs": {

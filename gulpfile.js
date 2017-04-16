@@ -6,6 +6,7 @@ const gulp = require('gulp'),
 			uglify = require('gulp-uglify'),
 			jshint = require('gulp-jshint'),
 			header  = require('gulp-header'),
+			include = require('gulp-include'),
 			rename = require('gulp-rename'),
 			cssnano = require('gulp-cssnano'),
 			sourcemaps = require('gulp-sourcemaps'),
@@ -60,6 +61,13 @@ gulp.task('js', function() {
 		.pipe(sourcemaps.init())
 		.pipe(jshint('.jshintrc'))
 		.pipe(jshint.reporter('default'))
+		.pipe(include({
+	    extensions: 'js',
+	    hardFail: true,
+	    includePaths: [
+	      `${ __dirname }/node_modules`,
+	    ]
+	  }))
 		.pipe(header(banner, { package : package }))
 		.pipe(gulp.dest('app/assets/js'))
 		.pipe(uglify())
