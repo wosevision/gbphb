@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     cssnano = require('gulp-cssnano'),
     sourcemaps = require('gulp-sourcemaps'),
 		nunjucksRender = require('gulp-nunjucks-render'),
+		moduleImporter = require('sass-module-importer');
     package = require('./package.json');
 
 
@@ -27,7 +28,7 @@ var banner = [
 gulp.task('css', function () {
     return gulp.src('src/scss/style.scss')
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
     .pipe(autoprefixer('last 4 version'))
     .pipe(gulp.dest('app/assets/css'))
     .pipe(cssnano())
