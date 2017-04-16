@@ -78,7 +78,7 @@ gulp.task('js', function() {
  * - writes assets
  */
 gulp.task('templates', function() {
-	return gulp.src('src/index.+(html|nunjucks|njk)')
+	return gulp.src('src/pages/**/*.+(html|nunjucks|njk)')
 		.pipe(data(file => fm(String(file.contents)).attributes))
 		.pipe(nunjucksRender({
 			path: ['src/templates']
