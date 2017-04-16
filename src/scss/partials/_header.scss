@@ -1,10 +1,8 @@
 .header {
-
+  @include position(fixed, 0 auto auto 0);
 }
 .logo {
-  margin: -58px 0 0 -100px;
-  @include position(absolute, 50% 0 0 50%);
   img {
-
+		max-width: 200px;
   }
 }
