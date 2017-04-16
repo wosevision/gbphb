@@ -16,69 +16,76 @@ h1,
 .header-1 {
 	font-size: 2.86em;
 	line-height: 1.2em;
-	font-family: $primary-font-serif;
+	font-family: $font-family-serif;
 	font-weight: 700;
-	color: $grey-dark-1;
+	color: $primary-color;
 }
 
 h2,
 .header-2 {
 	font-size: 2.14em;
 	line-height: 1.2em;
-	font-family: $primary-font-sans-serif;
+	font-family: $font-family-sans-serif;
 	font-weight: 400;
-	color: $grey-dark-1;
+	color: $primary-color;
 }
 
 h3,
 .header-3 {
 	font-size: 1.71em;
 	line-height: 1.17em;
-	font-family: $primary-font-sans-serif;
+	font-family: $font-family-sans-serif;
 	font-weight: 400;
-	color: $grey-dark-1;
+	color: $primary-color;
 }
 
 h4,
 .header-4 {
 	font-size: 1.43em;
 	line-height: 1.17em;
-	font-family: $primary-font-sans-serif;
+	font-family: $font-family-sans-serif;
 	font-weight: 400;
-	color: $grey-dark-1;
+	color: $primary-color;
 }
 
 h5,
 .header-5 {
 	font-size: 1.21em;
 	line-height: 1.15em;
-	font-family: $primary-font-sans-serif;
+	font-family: $font-family-sans-serif;
 	font-weight: 400;
-	color: $grey-dark-1;
+	color: $primary-color;
 }
 
 h6,
 .header-6 {
 	font-size: 1em;
 	line-height: 1.15em;
-	font-family: $primary-font-sans-serif;
+	font-family: $font-family-sans-serif;
 	font-weight: 700;
-	color: $grey-dark-1;
+	color: $primary-color;
 }
 
 p {
 	line-height: 1.57em;
 	font-weight: 400;
+
+	a {
+		border-bottom: dashed 1px;
+
+		&:hover {
+			border-bottom: solid 1px;
+	}
+	}
 }
 
 a {
-	border-bottom: dashed 1px;
-	color: $grey-dark-1;
+	color: $primary-color;
 	text-decoration: none;
 
 	&:focus,
 	&:hover {
-		color: $primary-color;
+		color: $primary-color-dark-1;
 		text-decoration: none;
 	}
 }
@@ -89,7 +96,7 @@ blockquote,
 	border-left: solid 1px $primary-color;
 	font-size: 2.14em;
 	line-height: 1.33em;
-	color: $grey-dark-2;
+	color: $primary-color-dark-1;
 }
 
 
@@ -98,8 +105,9 @@ blockquote,
 .subheader {
 	font-size: 1.57em;
 	line-height: 2em;
-	font-family: $primary-font-sans-serif;
-	color: $grey-dark-1;
+	font-family: $font-family-sans-serif;
+	font-weight: 700;
+	color: $primary-color;
 }
 
 

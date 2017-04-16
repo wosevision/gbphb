@@ -1,7 +1,7 @@
-$xs: 480px;
-$sm: 768px;
-$md: 992px;
-$lg: 1200px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
 
 $sunglow: #fad030;
 $sunglow-dark-1: darken($sunglow, 15%);
@@ -20,61 +20,16 @@ $georgia: Georgia, serif;
 
 // BRAND SPECIFIC
 
-$primary-color: $sunglow;
-$primary-color-dark-1: $sunglow-dark-1;
-$primary-color-tint-1: $sunglow-tint-1;
+$primary-color-dark-1: $grey-dark-2;
+$primary-color: $grey-dark-1;
+$primary-color-tint-1: $grey;
+$primary-color-tint-2: $grey-tint-1;
+$primary-color-tint-3: $grey-tint-2;
 
-$primary-font-sans-serif: $roboto;
-$primary-font-serif: $georgia;
+$secondary-color: $sunglow;
+$secondary-color-dark-1: $sunglow-dark-1;
+$secondary-color-tint-1: $sunglow-tint-1;
 
+$font-family-sans-serif: $roboto;
+$font-family-serif: $georgia;
 
-// BUTTONS
-
-$btn-padding-x:                  30px;
-$btn-padding-y:                  10px;
-// $btn-line-height:                1.25 !default;
-// $btn-font-weight:                $font-weight-normal !default;
-// $btn-box-shadow:                 inset 0 1px 0 rgba($white,.15), 0 1px 1px rgba($black,.075) !default;
-// $btn-focus-box-shadow:           0 0 0 2px rgba($brand-primary, .25) !default;
-// $btn-active-box-shadow:          inset 0 3px 5px rgba($black,.125) !default;
-
-// $btn-primary-color:              $white !default;
-// $btn-primary-bg:                 $brand-primary !default;
-// $btn-primary-border:             $btn-primary-bg !default;
-
-// $btn-secondary-color:            $gray-dark !default;
-// $btn-secondary-bg:               $white !default;
-// $btn-secondary-border:           #ccc !default;
-
-// $btn-info-color:                 $white !default;
-// $btn-info-bg:                    $brand-info !default;
-// $btn-info-border:                $btn-info-bg !default;
-
-// $btn-success-color:              $white !default;
-// $btn-success-bg:                 $brand-success !default;
-// $btn-success-border:             $btn-success-bg !default;
-
-// $btn-warning-color:              $white !default;
-// $btn-warning-bg:                 $brand-warning !default;
-// $btn-warning-border:             $btn-warning-bg !default;
-
-// $btn-danger-color:               $white !default;
-// $btn-danger-bg:                  $brand-danger !default;
-// $btn-danger-border:              $btn-danger-bg !default;
-
-// $btn-link-disabled-color:        $gray-light !default;
-
-// $btn-padding-x-sm:               .5rem !default;
-// $btn-padding-y-sm:               .25rem !default;
-
-// $btn-padding-x-lg:               1.5rem !default;
-// $btn-padding-y-lg:               .75rem !default;
-
-// $btn-block-spacing-y:            .5rem !default;
-// $btn-toolbar-margin:             .5rem !default;
-
-$btn-border-radius:              20px;
-// $btn-border-radius-lg:           $border-radius-lg !default;
-// $btn-border-radius-sm:           $border-radius-sm !default;
-
-// $btn-transition:                 all .2s ease-in-out !default;
