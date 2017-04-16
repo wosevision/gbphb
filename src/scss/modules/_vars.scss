@@ -1,3 +1,23 @@
-$base : #F7F6F0;
-$darken : darken(#F7F6F0 , 30%);
-$back: darken(#F7F6F0, 40%);
+$sunglow: #fad030;
+$sunglow-dark-1: darken($sunglow, 15%);
+$sunglow-tint-1: lighten($sunglow, 15%);
+
+$grey-dark-2: #39393a;
+$grey-dark-1: #4a4a4a;
+$grey: #cacaca;
+$grey-tint-1: #f6f6f6;
+$grey-tint-2: #eaeaea;
+$white: #fff;
+
+$roboto: "Roboto", Arial, sans-serif;
+$georgia: Georgia, serif;
+
+
+// BRAND SPECIFIC
+
+$primary-color: $sunglow;
+$primary-color-dark-1: $sunglow-dark-1;
+$primary-color-tint-1: $sunglow-tint-1;
+
+$primary-font-sans-serif: $roboto;
+$primary-font-serif: $georgia;
