@@ -394,6 +394,16 @@ textarea {
 .nav ul {
   list-style: none; }
 
+.button {
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: solid 1px #4a4a4a;
+  color: #4a4a4a;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 1em;
+  font-weight: 400;
+  font-style: normal; }
+
 @font-face {
   font-family: 'Font-Name';
   src: url("../fonts/font-name.eot");
@@ -454,14 +464,19 @@ p {
   font-weight: 400; }
 
 a {
+  border-bottom: dashed 1px;
   color: #4a4a4a;
-  border-bottom: dashed 1px; }
+  text-decoration: none; }
   a:focus, a:hover {
-    color: #fad030; }
+    color: #fad030;
+    text-decoration: none; }
 
 blockquote,
 .blockquote {
+  padding-left: 1em;
+  border-left: solid 1px #fad030;
   font-size: 2.14em;
+  line-height: 1.33em;
   color: #39393a; }
 
 .subheader {
@@ -492,6 +507,15 @@ blockquote,
   background: #333;
   color: #fff;
   text-shadow: none; }
+
+.hero {
+  padding-top: 270px;
+  background-size: cover;
+  background-position: center;
+  background-color: #eaeaea; }
+  .hero .hero-block {
+    padding: 75px 75px 30px;
+    background-color: #fad030; }
 
 @media print {
   * {
