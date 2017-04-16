@@ -1,6 +1,7 @@
 ---
 heroLarge: true
 heroBg: assets/img/house-banner.jpg
+galleryBase: assets/img/gallery
 ---
 
 {% extends "layout.html" %}
@@ -50,6 +51,26 @@ heroBg: assets/img/house-banner.jpg
 					</div>
 					<div class="col-md-5">
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="swiper-container gallery-top">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
+						<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
+						<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
+					</div>
+					<div class="swiper-button-next swiper-button-white"></div>
+					<div class="swiper-button-prev swiper-button-white"></div>
+				</div>
+				<div class="swiper-container gallery-thumbs">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
+						<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
+						<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
 					</div>
 				</div>
 			</div>
