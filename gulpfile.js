@@ -80,5 +80,5 @@ gulp.task('bs-reload', function() {
 gulp.task('default', ['css', 'js', 'templates', 'browser-sync'], function() {
 	gulp.watch('src/scss/**/*.scss', ['css']);
 	gulp.watch('src/js/*.js', ['js']);
-	gulp.watch('src/**/*.html', ['bs-reload']);
+	gulp.watch('src/**/*.html', ['templates', 'bs-reload']);
 });
