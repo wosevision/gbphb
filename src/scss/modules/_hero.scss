@@ -1,0 +1,11 @@
+.hero {
+	padding-top: 270px;
+	background-size: cover;
+	background-position: center;
+	background-color: $grey-tint-2;
+
+	.hero-block {
+		padding: 75px 75px 30px;
+		background-color: $primary-color;
+	}
+}
