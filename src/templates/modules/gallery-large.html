@@ -3,9 +3,9 @@
 		<!-- BEGIN GALLERY IMAGES -->
 		<div class="swiper-container gallery-images">
 			<div class="swiper-wrapper">
-				<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
-				<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
-				<div class="swiper-slide" style="background-image:url({{ galleryBase }}-house-1.jpg)"></div>
+				{% for slide in gallerySlides %}
+				<div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
+				{% endfor %}
 			</div>
 		</div>
 		<!-- END GALLERY IMAGES -->
@@ -14,9 +14,10 @@
 		<div class="col-sm-10 offset-sm-1">
 			<div class="card">
 				<div class="card-header">
+					<!-- BEGIN GALLERY CONTROLS -->
 					<div class="row align-items-center">
 						<div class="col-sm-8">
-							<span>About this project</span>
+							<span>{{ galleryTitle }}</span>
 						</div>
 						<div class="col-sm-4">
 							<div class="row align-items-center">
@@ -30,26 +31,21 @@
 							</div>
 						</div>
 					</div>
+					<!-- END GALLERY CONTROLS -->
 				</div>
 				<div class="card-block">
 					<!-- BEGIN GALLERY CARDS -->
 					<div class="swiper-container gallery-cards">
 						<div class="swiper-wrapper">
+ 							{% for slide in gallerySlides %}
 							<div class="swiper-slide">
-								<h3>En sit amet eros sit amet odio efficitur convallis</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.</p>
+								<h3>{{ slide.heading }}</h3>
+								<p>{{ slide.body }}</p>
 								<div class="text-right">
-									<a href="#" class="btn btn-primary btn-outline">Learn more</a>
+									<a href="#" class="btn btn-primary btn-outline">{{ slide.button }}</a>
 								</div>
 							</div>
-							<div class="swiper-slide">
-								<h3>Efficitur convallis en sit amet eros sit amet odio</h3>
-								<p>Aliquam aliquet vel nisi et aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus, at dignissim erat vitae dignissim risus.</p>
-							</div>
-							<div class="swiper-slide">
-								<h3>En amet odio efficitur sit amet eros sit convallis</h3>
-								<p>Lorem ipsum, consectetur adipiscing elit dolor sit amet. Aliquam aliquet vel nisi et aliquet. Phasellus, at dignissim erat vitae dignissim risus.</p>
-							</div>
+							{% endfor %}
 						</div>
 					</div>
 					<!-- END GALLERY CARDS -->
