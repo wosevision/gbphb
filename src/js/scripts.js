@@ -4,12 +4,15 @@
 (function ($, window, document, undefined) {
 
   'use strict';
+
   // document ready
   $(function () {
 
     var galleryTop = new Swiper('.gallery-top', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
         spaceBetween: 10,
     });
     var galleryThumbs = new Swiper('.gallery-thumbs', {
