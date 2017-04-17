@@ -1,7 +1,13 @@
 {
   "name": "gbphb",
   "title": "GBPHB front-end",
-  "author": "Tiffany Choong <tiff.a.choong@gmail.com> & Jackson Teather <jacksonteather@hotmail.com>",
+  "contributors": [{
+		"name": "Tiffany Choong",
+		"email": "tiff.a.choong@gmail.com"
+	},{
+		"name": "Jackson Teather",
+		"email": "jacksonteather@hotmail.com"
+	}],
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
