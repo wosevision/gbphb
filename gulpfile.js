@@ -19,12 +19,13 @@ const gulp = require('gulp'),
  * Dynamically append package info to top of
  * generated files.
  */
+package.contributors = package.contributors.map(author => `${ author.name } <${ author.email }>`);
 const banner = [
 	'/*!\n' +
 	' * <%= package.name %>\n' +
 	' * <%= package.title %>\n' +
 	' * <%= package.url %>\n' +
-	' * @author <%= package.author %>\n' +
+	' * @author <%= package.contributors.join(\' & \') %>>\n' +
 	' * @version <%= package.version %>\n' +
 	' * Copyright ' + new Date().getFullYear() + '. <%= package.license %> licensed.\n' +
 	' */',

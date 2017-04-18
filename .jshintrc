@@ -21,6 +21,6 @@
   "smarttabs": true,
   "globals" : {
     "jQuery": true,
-    "Modernizr": true
+    "Swiper": true
   }
 }

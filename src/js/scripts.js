@@ -4,23 +4,27 @@
 (function ($, window, document, undefined) {
 
   'use strict';
+
   // document ready
   $(function () {
 
-    var galleryTop = new Swiper('.gallery-top', {
+    var galleryLargeImages = new Swiper('.gallery-large .gallery-images', {
+	    	loop: true,
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationType: 'fraction',
         spaceBetween: 10,
+        a11y: true,
     });
-    var galleryThumbs = new Swiper('.gallery-thumbs', {
-        spaceBetween: 10,
-        centeredSlides: true,
-        slidesPerView: 'auto',
-        touchRatio: 0.2,
-        slideToClickedSlide: true
+    var galleryLargeCards = new Swiper('.gallery-large .gallery-cards', {
+	    	loop: true,
+        touchRatio: 0.6,
+        effect: 'fade',
+        a11y: true,
     });
-    galleryTop.params.control = galleryThumbs;
-    galleryThumbs.params.control = galleryTop;
+    galleryLargeImages.params.control = galleryLargeCards;
+    galleryLargeCards.params.control = galleryLargeImages;
 
   });
 
