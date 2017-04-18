@@ -57,6 +57,18 @@ gulp.task('css', function() {
 		.pipe(browserSync.reload({stream:true}));
 });
 
+/**
+ * Generate main JS file from script source files. This task:
+ * - inits sourcemaps
+ * - displays warnings in script style with jshint
+ * - includes JS from `node_modules` for requiring via annotation
+ * - injects package info banner
+ * - writes an unminified .js file
+ * - minifies .js and renames to .min.js
+ * - injects package info banner
+ * - writes minified file with sourcemaps to `app/assets`
+ * - launches browserSync
+ */
 gulp.task('js', function() {
 	gulp.src('src/js/scripts.js')
 		.pipe(sourcemaps.init())
