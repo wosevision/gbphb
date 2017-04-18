@@ -9,9 +9,10 @@ $sunglow-tint-1: lighten($sunglow, 15%);
 
 $grey-dark-2: #39393a;
 $grey-dark-1: #4a4a4a;
-$grey: #cacaca;
-$grey-tint-1: #eaeaea;
-$grey-tint-2: #f6f6f6;
+$grey: #979797;
+$grey-tint-1: #cacaca;
+$grey-tint-2: #eaeaea;
+$grey-tint-3: #f6f6f6;
 $white: #fff;
 
 $roboto: "Roboto", Arial, sans-serif;
@@ -23,8 +24,8 @@ $georgia: Georgia, serif;
 $primary-color-dark-1: $grey-dark-2;
 $primary-color: $grey-dark-1;
 $primary-color-tint-1: $grey;
-$primary-color-tint-2: $grey-tint-1;
-$primary-color-tint-3: $grey-tint-2;
+$primary-color-tint-2: $grey-tint-2;
+$primary-color-tint-3: $grey-tint-3;
 
 $secondary-color: $sunglow;
 $secondary-color-dark-1: $sunglow-dark-1;
