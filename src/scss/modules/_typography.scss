@@ -14,7 +14,7 @@
 
 h1,
 .header-1 {
-	font-size: 2.86em;
+	font-size: 2.5em;
 	line-height: 1.2em;
 	font-family: $font-family-serif;
 	font-weight: 700;
@@ -23,7 +23,7 @@ h1,
 
 h2,
 .header-2 {
-	font-size: 2.14em;
+	font-size: 1.875em;
 	line-height: 1.2em;
 	font-family: $font-family-sans-serif;
 	font-weight: 400;
@@ -32,7 +32,7 @@ h2,
 
 h3,
 .header-3 {
-	font-size: 1.71em;
+	font-size: 1.5em;
 	line-height: 1.17em;
 	font-family: $font-family-sans-serif;
 	font-weight: 400;
@@ -41,7 +41,7 @@ h3,
 
 h4,
 .header-4 {
-	font-size: 1.43em;
+	font-size: 1.25em;
 	line-height: 1.17em;
 	font-family: $font-family-sans-serif;
 	font-weight: 400;
@@ -50,7 +50,7 @@ h4,
 
 h5,
 .header-5 {
-	font-size: 1.21em;
+	font-size: 1.125em;
 	line-height: 1.15em;
 	font-family: $font-family-sans-serif;
 	font-weight: 400;
@@ -67,6 +67,7 @@ h6,
 }
 
 p {
+	font-size: 0.875em;
 	line-height: 1.57em;
 	font-weight: 400;
 
@@ -94,7 +95,7 @@ blockquote,
 .blockquote {
 	padding-left: 1rem;
 	border-left: solid 1px $secondary-color;
-	font-size: 2.14em;
+	font-size: 1.875em;
 	line-height: 1.33em;
 	font-weight: 300;
 	color: $primary-color-dark-1;
@@ -103,16 +104,20 @@ blockquote,
 	.cite {
 		display: block;
 		font-style: normal;
-		font-size: 1rem;
+		font-size: 0.875rem;
 		text-align: right;
 	}
+}
+
+address {
+	font-size: 0.875em;
 }
 
 
 // HEADERS
 
 .subheader {
-	font-size: 1.57em;
+	font-size: 1.375em;
 	line-height: 2em;
 	font-family: $font-family-sans-serif;
 	font-weight: 700;
@@ -121,12 +126,12 @@ blockquote,
 
 
 .footnote {
-	font-size: 0.86em;
+	font-size: 0.75em;
 }
 
 .giant-number {
 	color: $grey-tint-1;
-	font-size: 7.14em;
+	font-size: 6.25em;
 	font-family: $font-family-sans-serif;
 	font-weight: 700;
 }

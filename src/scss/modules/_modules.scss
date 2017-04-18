@@ -7,7 +7,7 @@ body {
 	padding-bottom: 100px;
 
 	&:nth-child(odd) {
-		background-color: $grey-tint-2;
+		background-color: $grey-tint-3;
 	}
 
 	.giant-number {
@@ -20,11 +20,11 @@ body {
 	}
 
 	.module-header {
-		margin-top: 3rem;
-		margin-bottom: 2rem;
+		margin-top: 2.5rem;
+		margin-bottom: 1.875rem;
 	}
 
 	.module-intro {
-		margin-bottom: 2rem;
+		margin-bottom: 1.875rem;
 	}
 }
