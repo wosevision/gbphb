@@ -10,9 +10,9 @@
 
     var galleryLargeImages = new Swiper('.gallery-large .gallery-images', {
 	    	loop: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        pagination: '.swiper-pagination',
+        nextButton: '.gallery-large .swiper-button-next',
+        prevButton: '.gallery-large .swiper-button-prev',
+        pagination: '.gallery-large .swiper-pagination',
         paginationType: 'fraction',
         spaceBetween: 10,
         a11y: true,
@@ -26,6 +26,13 @@
     galleryLargeImages.params.control = galleryLargeCards;
     galleryLargeCards.params.control = galleryLargeImages;
 
+    var gallerySmall = new Swiper('.gallery-small .gallery-cards', {
+        pagination: '.gallery-small .swiper-pagination',
+        slidesPerView: 'auto',
+        // centeredSlides: true,
+        paginationClickable: true,
+        spaceBetween: 16
+    });
   });
 
 })(jQuery, window, document);

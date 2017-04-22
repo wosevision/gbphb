@@ -1,0 +1,38 @@
+<div class="gallery-small">
+	<div class="row">
+		<div class="col-sm-10 offset-sm-2">
+				<!-- BEGIN GALLERY CARDS -->
+				<div class="swiper-container gallery-cards">
+					<div class="swiper-wrapper">
+							{% for slide in gallerySlides %}
+						<div class="swiper-slide">
+							<img class="card-image" src="{{ slide.image }}" />
+							<h3>{{ slide.heading }}</h3>
+							<p>{{ slide.body }}</p>
+							<!-- <div class="text-right"> -->
+								<a href="#" class="btn btn-primary btn-outline">{{ slide.button }}</a>
+							<!-- </div> -->
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+				<!-- END GALLERY CARDS -->
+		</div>
+	</div>
+	<div class="row align-items-center">
+		<div class="col-sm-10 offset-sm-2">
+			<div class="row align-items-center">
+				<div class="col-sm-2"> 
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="col-sm-2"> 
+					<div class="swiper-button-prev"><i class="material-icons">arrow_back</i></div>
+					<div class="swiper-button-next"><i class="material-icons">arrow_forward</i></div>
+				</div>
+				<div class="col-sm-8"> 
+					<a href="#" class="btn btn-primary btn-outline">Learn more</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
