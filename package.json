@@ -1,13 +1,16 @@
 {
   "name": "gbphb",
   "title": "GBPHB front-end",
-  "contributors": [{
-		"name": "Tiffany Choong",
-		"email": "tiff.a.choong@gmail.com"
-	},{
-		"name": "Jackson Teather",
-		"email": "jacksonteather@hotmail.com"
-	}],
+  "contributors": [
+    {
+      "name": "Tiffany Choong",
+      "email": "tiff.a.choong@gmail.com"
+    },
+    {
+      "name": "Jackson Teather",
+      "email": "jacksonteather@hotmail.com"
+    }
+  ],
   "version": "1.0.0",
   "license": "Apache-2.0",
   "repository": {
@@ -22,7 +25,9 @@
     "gulp-data": "^1.2.1",
     "gulp-header": "^1.7.1",
     "gulp-jshint": "^2.0.0",
+    "gulp-notify": "^3.0.0",
     "gulp-nunjucks-render": "^2.2.1",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
     "gulp-sourcemaps": "^1.6.0",

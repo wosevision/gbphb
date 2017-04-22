@@ -3,6 +3,8 @@ const gulp = require('gulp'),
 			data = require('gulp-data'),
 			browserSync = require('browser-sync'),
 			autoprefixer = require('gulp-autoprefixer'),
+			plumber = require('gulp-plumber'),
+			notify = require('gulp-notify'),
 			uglify = require('gulp-uglify'),
 			jshint = require('gulp-jshint'),
 			header  = require('gulp-header'),
@@ -46,6 +48,7 @@ const banner = [
 gulp.task('css', function() {
 	return gulp.src('src/scss/style.scss')
 		.pipe(sourcemaps.init())
+		.pipe(plumber({errorHandler: notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
 		.pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
 		.pipe(autoprefixer('last 4 version'))
 		.pipe(gulp.dest('app/assets/css'))
