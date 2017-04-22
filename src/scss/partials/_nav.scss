@@ -11,6 +11,65 @@
   }
 }
 
+.nav-toggle {
+	display: flex;
+	align-items: center;
+
+	&:hover {
+		.ham-bars {
+			&::before,
+			&&:after {
+
+			}
+		}
+	}
+}
+
+.nav-toggle-ham {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 10px;
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: solid 1px $white;
+}
+
+%ham-bars {
+	position: absolute;
+	height: 1px;
+	width: 14px;
+	background-color: $white;
+}
+.ham-bars {
+	@extend %ham-bars;
+	position: relative;
+	width: 11px;
+	margin-right: 3px;
+
+	&::before,
+	&::after {
+		content: '';
+		@extend %ham-bars;
+		transition: 0.4s;
+	}
+	&::before {
+		top: -5px;
+		transition: 0.4s;
+	}
+	&::after {
+		top: 5px;
+		transition: 0.4s;
+	}
+}
+
+.nav-toggle-text {
+	font-size: 0.75em;
+	color: $white;
+	text-transform: uppercase;
+}
 
 .nav-mini {
 	position: absolute;
