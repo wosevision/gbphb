@@ -18,9 +18,29 @@
 	background-color: transparent;
 	font-size: 1.5em;
 
+	&::-webkit-input-placeholder {
+		color: $grey-tint-1;
+	}
+	&::-ms-input-placeholder {
+		color: $grey-tint-1;
+	}
+	&::-moz-input-placeholder {
+		color: $grey-tint-1;
+	}
+
 	&:focus {
 		// border-color: $secondary-color;
 		background-color: transparent;
+
+		&::-webkit-input-placeholder {
+			color: $secondary-color;
+		}
+		&::-ms-input-placeholder {
+			color: $secondary-color;
+		}
+		&::-moz-input-placeholder {
+			color: $secondary-color;
+		}
 
 		+ .form-fancy-decor {
 			height: calc(100% - 1.25rem);
