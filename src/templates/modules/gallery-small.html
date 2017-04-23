@@ -4,13 +4,13 @@
 				<!-- BEGIN GALLERY CARDS -->
 				<div class="swiper-container gallery-cards">
 					<div class="swiper-wrapper">
-							{% for slide in gallerySlides %}
+							{% for slide in gallerySmall.slides %}
 						<div class="swiper-slide">
 							<img class="card-image" src="{{ slide.image }}" />
 							<h3>{{ slide.heading }}</h3>
 							<p>{{ slide.body }}</p>
 							<!-- <div class="text-right"> -->
-								<a href="#" class="btn btn-primary btn-outline">{{ slide.button }}</a>
+								<a href="#" class="">{{ slide.button }}</a>
 							<!-- </div> -->
 						</div>
 						{% endfor %}
