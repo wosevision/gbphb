@@ -2,7 +2,7 @@ body {
 	counter-reset: modulenum;
 }
 
-.module-container {
+.content-block {
 	padding-top: 100px;
 	padding-bottom: 100px;
 	overflow: hidden;
@@ -20,12 +20,12 @@ body {
 		}
 	}
 
-	.module-header {
+	.block-header {
 		margin-top: 2.5rem;
 		margin-bottom: 1.875rem;
 	}
 
-	.module-intro {
+	.block-intro {
 		margin-bottom: 1.875rem;
 	}
 }

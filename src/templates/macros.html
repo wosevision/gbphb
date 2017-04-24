@@ -1,12 +1,12 @@
 {% macro contentBlock(title, primary, secondary) %}
-<section class="module-container">
+<section class="content-block">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-2">
 				<span class="giant-number counter"></span>
 			</div>
 			<div class="col-sm-10">
-				<h2 class="module-header header-1">{{ title }}</h2>
+				<h2 class="block-header header-1">{{ title }}</h2>
 				{% for module in primary %}
 					{% include "modules/" + module.type + ".html" %}
 				{% endfor %}
