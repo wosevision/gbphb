@@ -3,7 +3,7 @@
 		<!-- BEGIN GALLERY IMAGES -->
 		<div class="swiper-container gallery-images">
 			<div class="swiper-wrapper">
-				{% for slide in galleryLarge.slides %}
+				{% for slide in module.slides %}
 				<div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
 				{% endfor %}
 			</div>
@@ -17,7 +17,7 @@
 					<!-- BEGIN GALLERY CONTROLS -->
 					<div class="row align-items-center">
 						<div class="col-sm-8">
-							<span>{{ galleryLarge.title }}</span>
+							<span>{{ module.title }}</span>
 						</div>
 						<div class="col-sm-4">
 							<div class="row align-items-center">
@@ -37,7 +37,7 @@
 					<!-- BEGIN GALLERY CARDS -->
 					<div class="swiper-container gallery-cards">
 						<div class="swiper-wrapper">
- 							{% for slide in galleryLarge.slides %}
+ 							{% for slide in module.slides %}
 							<div class="swiper-slide">
 								<h3>{{ slide.heading }}</h3>
 								<p>{{ slide.body }}</p>

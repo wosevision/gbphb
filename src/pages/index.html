@@ -2,144 +2,76 @@
 heroLarge: true
 heroBg: assets/img/house-banner.jpg
 
-galleryLarge:
-  title: About this project
-  slides:
-    - image: assets/img/gallery-house-1.jpg
-      heading: En sit amet eros sit amet odio efficitur convallis
-      body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-      button: Learn more
-    - image: assets/img/gallery-house-1.jpg
-      heading: Efficitur convallis en sit amet eros sit amet odio
-      body: Aliquam aliquet vel nisi et aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus, at dignissim erat vitae dignissim risus.
-      button: Learn more
-    - image: assets/img/gallery-house-1.jpg
-      heading: En amet odio efficitur sit amet eros sit convallis
-      body: Lorem ipsum, consectetur adipiscing elit dolor sit amet. Aliquam aliquet vel nisi et aliquet. Phasellus, at dignissim erat vitae dignissim risus.
-      button: Learn more
-
-gallerySmall:
-  slides:
-    - image: assets/img/gallery-house-1.jpg
-      heading: Wall Contrsuction
-      body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-      button: Learn more
-    - image: assets/img/gallery-house-1.jpg
-      heading: Foundation
-      body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-      button: Learn more
-    - image: assets/img/gallery-house-1.jpg
-      heading: Mechanical
-      body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-      button: Learn more
-    - image: assets/img/gallery-house-1.jpg
-      heading: Magical
-      body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-      button: Learn more
-
-introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
-blockquoteText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+contentBlocks:
+  - title: Our Approach
+    modulesPrimary:
+      - type: module-intro
+        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+      - type: blockquote
+        blockquoteText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+  - title: Our Projects
+    modulesPrimary:
+      - type: module-intro
+        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+    modulesSecondary:
+      - type: gallery-large
+        title: About this project
+        slides:
+          - image: assets/img/gallery-house-1.jpg
+            heading: En sit amet eros sit amet odio efficitur convallis
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery-house-1.jpg
+            heading: Efficitur convallis en sit amet eros sit amet odio
+            body: Aliquam aliquet vel nisi et aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus, at dignissim erat vitae dignissim risus.
+            button: Learn more
+          - image: assets/img/gallery-house-1.jpg
+            heading: En amet odio efficitur sit amet eros sit convallis
+            body: Lorem ipsum, consectetur adipiscing elit dolor sit amet. Aliquam aliquet vel nisi et aliquet. Phasellus, at dignissim erat vitae dignissim risus.
+            button: Learn more
+  - title: Our Blog
+    modulesPrimary:
+      - type: module-intro
+        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+    modulesSecondary:
+      - type: gallery-small
+        slides:
+          - image: assets/img/gallery-house-1.jpg
+            heading: Wall Contrsuction
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery-house-1.jpg
+            heading: Foundation
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery-house-1.jpg
+            heading: Mechanical
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery-house-1.jpg
+            heading: Magical
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+  - title: Our Contact
+    modulesPrimary:
+      - type: contact-form
+        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
 ---
+
+{% from "macros.html" import contentBlock %}
 
 {% extends "layout.html" %}
 
 {% block content %}
-	
+  
 {% include "partials/header.html" %}
 
 {% include "partials/hero.html" %}
 
-<section class="module-container">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<span class="giant-number counter"></span>
-			</div>
-			<div class="col-sm-10">
-				<h2 class="module-header header-1">Our Approach</h2>
-
-				{% include "modules/module-intro.html" %}
-
-				{% include "modules/blockquote.html" %}
-
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="module-container">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<span class="giant-number counter"></span>
-			</div>
-			<div class="col-sm-10">
-				<h2 class="module-header header-1">Our Projects</h2>
-
-				{% include "modules/module-intro.html" %}
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-
-				{% include "modules/gallery-large.html" %}
-
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="module-container">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<span class="giant-number counter"></span>
-			</div>
-			<div class="col-sm-10">
-				<h2 class="module-header header-1">Our Blog</h2>
-
-				{% include "modules/module-intro.html" %}
-
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-
-				{% include "modules/gallery-small.html" %}
-
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="module-container">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<span class="giant-number counter"></span>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="module-container">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-2">
-				<span class="giant-number counter"></span>
-			</div>
-			<div class="col-sm-10">
-				<h2 class="module-header header-1">Our Contact</h2>
-
-				{% include "modules/contact-form.html" %}
-
-			</div>
-		</div>
-	</div>
-</section>
-
-	
+{% for block in contentBlocks %}
+{{ contentBlock(block.title, block.modulesPrimary, block.modulesSecondary) }}
+{% endfor %}
+  
 {% include "partials/footer.html" %}
 
 {% endblock %}
