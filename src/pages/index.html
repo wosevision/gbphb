@@ -3,17 +3,16 @@ heroLarge: true
 heroBg: assets/img/house-banner.jpg
 
 contentBlocks:
-  - title: Our Approach
-    modulesPrimary:
+  - modules:
       - type: block-intro
-        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+        title: Our Approach
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
       - type: blockquote
         blockquoteText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-  - title: Our Projects
-    modulesPrimary:
+  - modules:
       - type: block-intro
-        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
-    modulesSecondary:
+        title: Our Projects
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
       - type: gallery-large
         title: About this project
         slides:
@@ -29,11 +28,10 @@ contentBlocks:
             heading: En amet odio efficitur sit amet eros sit convallis
             body: Lorem ipsum, consectetur adipiscing elit dolor sit amet. Aliquam aliquet vel nisi et aliquet. Phasellus, at dignissim erat vitae dignissim risus.
             button: Learn more
-  - title: Our Blog
-    modulesPrimary:
+  - modules:
       - type: block-intro
-        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
-    modulesSecondary:
+        title: Our Blog
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
       - type: gallery-small
         slides:
           - image: assets/img/gallery-house-1.jpg
@@ -52,13 +50,15 @@ contentBlocks:
             heading: Magical
             body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
             button: Learn more
-  - title: Our Contact
-    modulesPrimary:
+  - modules:
+      - type: block-intro
+        title: Our Contact
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+        address: true
       - type: contact-form
-        introText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
 ---
 
-{% from "macros.html" import contentBlock %}
+{% from "block.html" import contentBlock %}
 
 {% extends "layout.html" %}
 
@@ -69,7 +69,7 @@ contentBlocks:
 {% include "partials/hero.html" %}
 
 {% for block in contentBlocks %}
-{{ contentBlock(block.title, block.modulesPrimary, block.modulesSecondary) }}
+{{ contentBlock(block.modules) }}
 {% endfor %}
   
 {% include "partials/footer.html" %}

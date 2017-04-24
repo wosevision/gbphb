@@ -1,0 +1,11 @@
+{% macro contentBlock(modules) %}
+<section class="content-block">
+	<div class="container">
+		{% if modules %}
+			{% for module in modules %}
+				{% include "modules/" + module.type + ".html" %}
+			{% endfor %}
+		{% endif %}
+	</div>
+</section>
+{% endmacro %}
