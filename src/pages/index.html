@@ -58,7 +58,6 @@ contentBlocks:
       - type: contact-form
 ---
 
-{% from "block.html" import contentBlock %}
 
 {% extends "layout.html" %}
 
@@ -68,8 +67,9 @@ contentBlocks:
 
 {% include "partials/hero.html" %}
 
+{% from "block.html" import renderContentBlock %}
 {% for block in contentBlocks %}
-{{ contentBlock(block.modules) }}
+{{ renderContentBlock(block.modules) }}
 {% endfor %}
   
 {% include "partials/footer.html" %}
