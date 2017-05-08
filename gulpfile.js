@@ -1,4 +1,5 @@
-const gulp = require('gulp'),
+const path = require('path'),
+			gulp = require('gulp'),
 			$ = require('gulp-load-plugins')(),
 			browserSync = require('browser-sync'),
 			moduleImporter = require('sass-module-importer'),
@@ -23,6 +24,35 @@ const banner = [
 ].join('');
 
 /**
+ * Constants for file path parts and full paths.
+ */
+const base = {
+	src: 'src',
+	dist: 'app',
+}
+const sources = {
+	// sources
+	pages: path.join(base.src, 'pages'),
+	templates: path.join(base.src, 'templates'),
+	sass: path.join(base.src, 'scss'),
+	js: path.join(base.src, 'js'),
+	img: path.join(base.src, 'img'),
+	// destinations
+	assets: path.join(base.dist, 'assets')
+}
+const paths = {
+	// sources
+	styles: path.join(sources.sass, 'style.scss'),
+	scripts: path.join(sources.js, 'scripts.js'),
+	html: path.join(sources.pages, '**/*.+(html|nunjucks|njk)'),
+	img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
+	// destinations
+	styleDest: path.join(sources.assets, 'css'),
+	scriptDest: path.join(sources.assets, 'js'),
+	imageDest: path.join(sources.assets, 'img'),
+}
+
+/**
  * Generate CSS assets from Sass source files. This task:
  * - inits sourcemaps
  * - inits sass-module-importer for node_modules Sass @imports
@@ -34,17 +64,17 @@ const banner = [
  * - launches browserSync
  */
 gulp.task('css', function() {
-	return gulp.src('src/scss/style.scss')
+	return gulp.src(paths.styles)
 		.pipe($.sourcemaps.init())
 		.pipe($.plumber({errorHandler: $.notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
 		.pipe($.sass({ importer: moduleImporter() }).on('error', $.sass.logError))
 		.pipe($.autoprefixer('last 4 version'))
-		.pipe(gulp.dest('app/assets/css'))
+		.pipe(gulp.dest(paths.styleDest))
 		.pipe($.cssnano())
 		.pipe($.rename({ suffix: '.min' }))
 		.pipe($.header(banner, { package : package }))
 		.pipe($.sourcemaps.write())
-		.pipe(gulp.dest('app/assets/css'))
+		.pipe(gulp.dest(paths.styleDest))
 		.pipe(browserSync.reload({stream:true}));
 });
 
@@ -61,7 +91,7 @@ gulp.task('css', function() {
  * - launches browserSync
  */
 gulp.task('js', function() {
-	gulp.src('src/js/scripts.js')
+	gulp.src(paths.scripts)
 		.pipe($.sourcemaps.init())
 		.pipe($.jshint('.jshintrc'))
 		.pipe($.jshint.reporter('default'))
@@ -73,12 +103,12 @@ gulp.task('js', function() {
 	    ]
 	  }))
 		.pipe($.header(banner, { package : package }))
-		.pipe(gulp.dest('app/assets/js'))
+		.pipe(gulp.dest(paths.scriptDest))
 		.pipe($.uglify())
 		.pipe($.header(banner, { package : package }))
 		.pipe($.rename({ suffix: '.min' }))
 		.pipe($.sourcemaps.write())
-		.pipe(gulp.dest('app/assets/js'))
+		.pipe(gulp.dest(paths.scriptDest))
 		.pipe(browserSync.reload({stream:true, once: true}));
 });
 
@@ -90,26 +120,26 @@ gulp.task('js', function() {
  * - writes assets
  */
 gulp.task('templates', function() {
-	return gulp.src('src/pages/**/*.+(html|nunjucks|njk)')
+	return gulp.src(paths.html)
 		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
 		.pipe($.nunjucksRender({
-			path: ['src/templates']
+			path: [ sources.templates ]
 		}))
-		.pipe(gulp.dest('app'));
+		.pipe(gulp.dest(base.dist));
 });
 
 /**
  * Copy static image assets to `app/assets`
  */
 gulp.task('images', function() {
-	return gulp.src('src/img/**/*.+(jpg|jpeg|gif|png|svg)')
-		.pipe(gulp.dest('app/assets/img'));
+	return gulp.src(paths.img)
+		.pipe(gulp.dest(paths.imageDest));
 });
 
 gulp.task('browser-sync', function() {
 	browserSync.init(null, {
 		server: {
-			baseDir: 'app'
+			baseDir: base.dist
 		}
 	});
 });
@@ -119,7 +149,7 @@ gulp.task('bs-reload', function() {
 });
 
 gulp.task('default', ['images', 'css', 'js', 'templates', 'browser-sync'], function() {
-	gulp.watch('src/scss/**/*.scss', ['css']);
-	gulp.watch('src/js/*.js', ['js']);
-	gulp.watch('src/**/*.html', ['templates', 'bs-reload']);
+	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
+	gulp.watch(path.join(sources.js, '**/*.js'), ['js']);
+	gulp.watch(path.join(base.src, '**/*.html'), ['templates', 'bs-reload']);
 });
