@@ -14,7 +14,7 @@ const gulp = require('gulp'),
 			sourcemaps = require('gulp-sourcemaps'),
 			nunjucksRender = require('gulp-nunjucks-render'),
 			moduleImporter = require('sass-module-importer'),
-			fm = require('front-matter'),
+			frontMatter = require('front-matter'),
 			package = require('./package.json');
 
 /**
@@ -103,7 +103,7 @@ gulp.task('js', function() {
  */
 gulp.task('templates', function() {
 	return gulp.src('src/pages/**/*.+(html|nunjucks|njk)')
-		.pipe(data(file => fm(String(file.contents)).attributes))
+		.pipe(data(file => frontMatter(String(file.contents)).attributes))
 		.pipe(nunjucksRender({
 			path: ['src/templates']
 		}))
