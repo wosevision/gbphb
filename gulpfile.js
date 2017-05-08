@@ -1,18 +1,6 @@
 const gulp = require('gulp'),
-			sass = require('gulp-sass'),
-			data = require('gulp-data'),
+			$ = require('gulp-load-plugins')(),
 			browserSync = require('browser-sync'),
-			autoprefixer = require('gulp-autoprefixer'),
-			plumber = require('gulp-plumber'),
-			notify = require('gulp-notify'),
-			uglify = require('gulp-uglify'),
-			jshint = require('gulp-jshint'),
-			header  = require('gulp-header'),
-			include = require('gulp-include'),
-			rename = require('gulp-rename'),
-			cssnano = require('gulp-cssnano'),
-			sourcemaps = require('gulp-sourcemaps'),
-			nunjucksRender = require('gulp-nunjucks-render'),
 			moduleImporter = require('sass-module-importer'),
 			frontMatter = require('front-matter'),
 			package = require('./package.json');
@@ -47,15 +35,15 @@ const banner = [
  */
 gulp.task('css', function() {
 	return gulp.src('src/scss/style.scss')
-		.pipe(sourcemaps.init())
-		.pipe(plumber({errorHandler: notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
-		.pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
-		.pipe(autoprefixer('last 4 version'))
+		.pipe($.sourcemaps.init())
+		.pipe($.plumber({errorHandler: $.notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
+		.pipe($.sass({ importer: moduleImporter() }).on('error', $.sass.logError))
+		.pipe($.autoprefixer('last 4 version'))
 		.pipe(gulp.dest('app/assets/css'))
-		.pipe(cssnano())
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(header(banner, { package : package }))
-		.pipe(sourcemaps.write())
+		.pipe($.cssnano())
+		.pipe($.rename({ suffix: '.min' }))
+		.pipe($.header(banner, { package : package }))
+		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('app/assets/css'))
 		.pipe(browserSync.reload({stream:true}));
 });
@@ -74,22 +62,22 @@ gulp.task('css', function() {
  */
 gulp.task('js', function() {
 	gulp.src('src/js/scripts.js')
-		.pipe(sourcemaps.init())
-		.pipe(jshint('.jshintrc'))
-		.pipe(jshint.reporter('default'))
-		.pipe(include({
+		.pipe($.sourcemaps.init())
+		.pipe($.jshint('.jshintrc'))
+		.pipe($.jshint.reporter('default'))
+		.pipe($.include({
 	    extensions: 'js',
 	    hardFail: true,
 	    includePaths: [
 	      `${ __dirname }/node_modules`,
 	    ]
 	  }))
-		.pipe(header(banner, { package : package }))
+		.pipe($.header(banner, { package : package }))
 		.pipe(gulp.dest('app/assets/js'))
-		.pipe(uglify())
-		.pipe(header(banner, { package : package }))
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(sourcemaps.write())
+		.pipe($.uglify())
+		.pipe($.header(banner, { package : package }))
+		.pipe($.rename({ suffix: '.min' }))
+		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('app/assets/js'))
 		.pipe(browserSync.reload({stream:true, once: true}));
 });
@@ -103,8 +91,8 @@ gulp.task('js', function() {
  */
 gulp.task('templates', function() {
 	return gulp.src('src/pages/**/*.+(html|nunjucks|njk)')
-		.pipe(data(file => frontMatter(String(file.contents)).attributes))
-		.pipe(nunjucksRender({
+		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
+		.pipe($.nunjucksRender({
 			path: ['src/templates']
 		}))
 		.pipe(gulp.dest('app'));
