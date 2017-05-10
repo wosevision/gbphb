@@ -9,10 +9,11 @@
 									{% for slide in module.slides %}
 								<div class="swiper-slide">
 									<img class="card-image" src="{{ slide.image }}" />
-									<h3>{{ slide.heading }}</h3>
+									<span class="category-label">Category</span>
+									<h3 class="card-header">{{ slide.heading }}</h3>
 									<p>{{ slide.body }}</p>
 									<!-- <div class="text-right"> -->
-										<a href="#" class="">{{ slide.button }}</a>
+									<p><a href="#" class="cta-link">{{ slide.button }}</a></p>
 									<!-- </div> -->
 								</div>
 								{% endfor %}
