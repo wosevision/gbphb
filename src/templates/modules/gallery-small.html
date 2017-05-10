@@ -9,12 +9,12 @@
 									{% for slide in module.slides %}
 								<div class="swiper-slide">
 									<img class="card-image" src="{{ slide.image }}" />
-									<span class="category-label">Category</span>
-									<h3 class="card-header">{{ slide.heading }}</h3>
-									<p>{{ slide.body }}</p>
-									<!-- <div class="text-right"> -->
-									<p><a href="#" class="cta-link">{{ slide.button }}</a></p>
-									<!-- </div> -->
+									<div class="swiper-no-swiping">
+										<span class="category-label">Category</span>
+										<h3 class="card-header">{{ slide.heading }}</h3>
+										<p>{{ slide.body }}</p>
+										<p><a href="#" class="cta-link">{{ slide.button }}</a></p>
+									</div>
 								</div>
 								{% endfor %}
 							</div>
@@ -33,7 +33,7 @@
 							<div class="swiper-button-next"><i class="material-icons">arrow_forward</i></div>
 						</div>
 						<div class="col-sm-8"> 
-							<a href="#" class="btn btn-primary btn-outline">Learn more</a>
+							<a href="#" class="btn btn-outline-primary">View all</a>
 						</div>
 					</div>
 				</div>

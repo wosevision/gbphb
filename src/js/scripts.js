@@ -27,10 +27,13 @@
     galleryLargeCards.params.control = galleryLargeImages;
 
     var gallerySmall = new Swiper('.gallery-small .gallery-cards', {
+    	grabCursor: true,
+        nextButton: '.gallery-small .swiper-button-next',
+        prevButton: '.gallery-small .swiper-button-prev',
         pagination: '.gallery-small .swiper-pagination',
         slidesPerView: 'auto',
-        // centeredSlides: true,
         paginationClickable: true,
+        paginationType: 'fraction',
         spaceBetween: 16
     });
   });
