@@ -2,53 +2,53 @@
 // SCSS MIXINS
 //----------------------------------*/
 
-@import 'mixins/_icon.scss';
-@import 'mixins/_position.scss';
+@import 'mixins/icon';
+@import 'mixins/position';
 
 
 //----------------------------------*\
 // CONFIG MODULES
 //----------------------------------*/
 
-@import 'modules/_vars.scss';
-@import 'modules/_clearfix.scss';
-@import 'modules/_defaults.scss';
+@import 'modules/vars';
+@import 'modules/clearfix';
+@import 'modules/defaults';
 
 
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
 
-@import 'vendor/_vars.scss';
-@import 'vendor/_external.scss';
+@import 'vendor/vars';
+@import 'vendor/external';
 
 
 //----------------------------------*\
 // PARTIALS
 //----------------------------------*/
 
-@import 'partials/_header.scss';
-@import 'partials/_nav.scss';
-@import 'partials/_sidebar.scss';
-@import 'partials/_main.scss';
-@import 'partials/_footer.scss';
+@import 'partials/header';
+@import 'partials/nav';
+@import 'partials/sidebar';
+@import 'partials/main';
+@import 'partials/footer';
 
 
 //----------------------------------*\
 // OBJECTS & MODULES
 //----------------------------------*/
 
-@import 'modules/_modules.scss';
-@import 'modules/_buttons.scss';
-@import 'modules/_inputs.scss';
-@import 'modules/_lists.scss';
-@import 'modules/_typography.scss';
-@import 'modules/_misc.scss';
-@import 'modules/_app.scss';
-@import 'modules/_hero.scss';
-@import 'modules/_gallery.scss';
-@import 'modules/_cards.scss';
+@import 'modules/modules';
+@import 'modules/buttons';
+@import 'modules/inputs';
+@import 'modules/lists';
+@import 'modules/typography';
+@import 'modules/misc';
+@import 'modules/app';
+@import 'modules/hero';
+@import 'modules/gallery';
+@import 'modules/cards';
 
 // Enhancement modules
-@import 'modules/_breakpoints.scss';
-@import 'modules/_print.scss';
+@import 'modules/breakpoints';
+@import 'modules/print';
