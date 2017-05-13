@@ -17,6 +17,7 @@
 	border-radius: 0;
 	background-color: transparent;
 	font-size: 1.5em;
+	color: $grey-dark-1;
 
 	&::-webkit-input-placeholder {
 		color: $grey-tint-1;
@@ -31,6 +32,7 @@
 	&:focus {
 		// border-color: $secondary-color;
 		background-color: transparent;
+		color: $grey-dark-1;
 
 		&::-webkit-input-placeholder {
 			color: $secondary-color;

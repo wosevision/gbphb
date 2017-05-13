@@ -144,3 +144,15 @@ address {
 		content: 'keyboard_arrow_right';
 	}
 }
+
+address,
+.address {
+	p {
+		margin-bottom: 0.5em;
+	}
+	.icon {
+		margin-right: 10px;
+		color: $secondary-color;
+		font-size: 1em;
+	}
+}
