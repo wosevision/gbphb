@@ -1,14 +1,44 @@
 .header {
-  @include position(fixed, 0 auto auto 0);
-  z-index: 100;
-  width: 100%;
-  padding: 15px 30px 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+	@include position(fixed, 0 auto auto 0);
+	z-index: 100;
+	width: 100%;
+	padding: 15px 30px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 .logo {
-  img {
-		max-width: 200px;
-  }
+	height: 90px;
+}
+.gbph-fill {
+	fill: $white;
+}
+.gbph-box-clip {
+	clip-rule: evenodd;
+}
+.gbph-box-clip, 
+.gbph-box-stroke {
+	fill: none;
+}
+.gbph-box-stroke {
+	stroke: $white;
+	stroke-miterlimit: 10;
+	stroke-width: 7px;
+	stroke-dasharray: 480;
+	animation-name: animateLogo;
+	animation-duration: 2.5s;
+	animation-fill-mode: forwards;
+	animation-timing-function: cubic-bezier(0.4,1.17,.95,-.44);
+}
+.gbph-box {
+	clip-path: url(#box-clip-path);
+}
+
+@keyframes animateLogo {
+	from {
+		stroke-dashoffset: 480;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
 }
