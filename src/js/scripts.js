@@ -5,20 +5,28 @@
 
   'use strict';
 
-  // document ready
-  $(function () {
+  function prependZero(digit) {
+    return digit < 10 ? ('0' + digit) : digit;
+  }
 
+  function paginationCustomRender(swiper, current, total) {
+    return prependZero(current) + ' / ' + prependZero(total);
+  }
+
+  function initStuff() {
     var galleryLargeImages = new Swiper('.gallery-large .gallery-images', {
-	    	loop: true,
+        loop: true,
         nextButton: '.gallery-large .swiper-button-next',
         prevButton: '.gallery-large .swiper-button-prev',
         pagination: '.gallery-large .swiper-pagination',
-        paginationType: 'fraction',
+        paginationType: 'custom',
+        paginationCustomRender: paginationCustomRender,
         spaceBetween: 10,
         a11y: true,
     });
     var galleryLargeCards = new Swiper('.gallery-large .gallery-cards', {
-	    	loop: true,
+        loop: true,
+        parallax: true,
         touchRatio: 0.6,
         effect: 'fade',
         a11y: true,
@@ -27,15 +35,19 @@
     galleryLargeCards.params.control = galleryLargeImages;
 
     var gallerySmall = new Swiper('.gallery-small .gallery-cards', {
-    	grabCursor: true,
-        nextButton: '.gallery-small .swiper-button-next',
-        prevButton: '.gallery-small .swiper-button-prev',
-        pagination: '.gallery-small .swiper-pagination',
-        slidesPerView: 'auto',
-        paginationClickable: true,
-        paginationType: 'fraction',
-        spaceBetween: 16
+      grabCursor: true,
+      nextButton: '.gallery-small .swiper-button-next',
+      prevButton: '.gallery-small .swiper-button-prev',
+      pagination: '.gallery-small .swiper-pagination',
+      slidesPerView: 'auto',
+      paginationClickable: true,
+      paginationType: 'custom',
+      paginationCustomRender: paginationCustomRender,
+      spaceBetween: 16
     });
-  });
+  }
+
+  // document ready
+  $(initStuff);
 
 })(jQuery, window, document);

@@ -39,7 +39,7 @@
 	&-pagination {
 		position: static;
 		display: inline-block;
-		&-fraction {
+		&-custom {
 			width: auto;
 		}
 	}
@@ -48,66 +48,70 @@
 	}
 }
 
-.gallery-large {
-	.gallery-top {
-	}
-	.gallery-images {
-		height: 400px;
-		width: 100%;
-	}
-	.gallery-bottom {
-		position: relative;
-		top: -72px;
-		margin-bottom: -72px;
-		z-index: 10;
-	}
-	.card {
-		border: 0;
-		border-radius: 0;
-		&-header {
-			font-size: 0.875em;
+.gallery {
+	&-large {
+		.gallery-top {
 		}
-		&-header, &-block {
-			background-color: $primary-color-tint-2;
-		}
-	}
-	.gallery-cards {
-		box-sizing: border-box;
-		height: 200px;
-		padding: 10px 0;
-		.swiper-slide {
+		.gallery-images {
+			height: 400px;
 			width: 100%;
-			height: 100%;
-			background-color: $primary-color-tint-2;
 		}
-	}
-}
-
-.gallery-small {
-	.card-image {
-		width: 100%;
-		margin-bottom: 1.1875rem;
-	}
-	.card {
-		&-header {
+		.gallery-bottom {
+			position: relative;
+			top: -72px;
+			margin-bottom: -72px;
+			z-index: 10;
+		}
+		.card {
 			border: 0;
 			border-radius: 0;
-			padding: 0;
-			margin-bottom: 1.1875rem;
-			background: none;
+			&-header {
+				font-size: 0.875em;
+			}
+			&-header, &-block {
+				background-color: $primary-color-tint-2;
+			}
+		}
+		.gallery-cards {
+			box-sizing: border-box;
+			height: 200px;
+			padding: 10px 0;
+			.swiper-slide {
+				width: 100%;
+				height: 100%;
+				background-color: $primary-color-tint-2;
+			}
 		}
 	}
-	.category-label {
-		margin-bottom: 0.1875rem;
-	}
-	.gallery-controls {
-		margin-top: 1.1875rem;
-	}
-	.swiper-container {
-		height: auto;
-		overflow: visible;
-	}
-	.swiper-slide {
-		max-width: 400px;
+
+	&-small {
+		.card {
+			&-header {
+				border: 0;
+				border-radius: 0;
+				padding: 0;
+				margin-bottom: 1.1875rem;
+				background: none;
+			}
+			&-image {
+				width: 100%;
+				margin-bottom: 1.1875rem;
+			}
+		}
+		.swiper {
+			&-container {
+				height: auto;
+				overflow: visible;
+			}
+			&-slide {
+				max-width: 400px;
+			}
+		}
+		.category-label {
+			margin-bottom: 0.1875rem;
+		}
+		.gallery-controls {
+			margin-top: 1.1875rem;
+		}
 	}
 }

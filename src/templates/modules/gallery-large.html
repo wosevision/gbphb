@@ -41,9 +41,9 @@
 								<div class="swiper-wrapper">
 		 							{% for slide in module.slides %}
 									<div class="swiper-slide">
-										<h3>{{ slide.heading }}</h3>
-										<p>{{ slide.body }}</p>
-										<div class="text-right">
+										<h3 data-swiper-parallax="-300">{{ slide.heading }}</h3>
+										<p data-swiper-parallax="-100">{{ slide.body }}</p>
+										<div class="text-right" data-swiper-parallax="-200">
 											<a href="#" class="btn btn-primary btn-outline">{{ slide.button }}</a>
 										</div>
 									</div>
