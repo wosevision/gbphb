@@ -80,6 +80,7 @@
 
 .nav-mini-list {
 	display: flex;
+	overflow-x: auto;
 }
 .nav-mini-item {
 	position: relative;
@@ -87,6 +88,10 @@
 	background-color: $white;
 	text-transform: uppercase;
 	font-weight: 400;
+
+	@media (max-width: $md - 1) {
+		min-width: 200px;
+	}
 
 	&::before {
 		content: '';

@@ -7,6 +7,10 @@ h1,
 	font-family: $font-family-serif;
 	font-weight: 700;
 	color: $primary-color;
+
+	@media (max-width: $md - 1) {
+		font-size: 2.125em;
+	}
 }
 
 h2,
@@ -16,6 +20,10 @@ h2,
 	font-family: $font-family-sans-serif;
 	font-weight: 400;
 	color: $primary-color;
+
+	@media (max-width: $md - 1) {
+		font-size: 1.5em;
+	}
 }
 
 h3,
@@ -25,6 +33,10 @@ h3,
 	font-family: $font-family-sans-serif;
 	font-weight: 400;
 	color: $primary-color;
+
+	@media (max-width: $md - 1) {
+		font-size: 1.375em;
+	}
 }
 
 h4,
@@ -87,6 +99,13 @@ blockquote,
 	line-height: 1.33em;
 	font-weight: 300;
 	color: $primary-color-dark-1;
+
+	@media (max-width: $md - 1) {
+		font-size: 1.5em;
+	}
+	@media (max-width: $sm - 1) {
+		font-size: 1.25em;
+	}
 	
 	cite,
 	.cite {
@@ -110,8 +129,11 @@ address {
 	font-family: $font-family-sans-serif;
 	font-weight: 700;
 	color: $primary-color;
-}
 
+	@media (max-width: $md - 1) {
+		font-size: 1.25em;
+	}
+}
 
 .footnote {
 	font-size: 0.75em;
@@ -122,6 +144,16 @@ address {
 	font-size: 6.25em;
 	font-family: $font-family-sans-serif;
 	font-weight: 700;
+
+	@media (max-width: $lg - 1) {
+		font-size: 5.5em;
+	}
+	@media (max-width: $md - 1) {
+		font-size: 4.25em;
+	}
+	@media (max-width: $sm - 1) {
+		line-height: 1em;
+	}
 }
 
 .category-label {
