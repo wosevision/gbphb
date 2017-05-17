@@ -95,6 +95,9 @@ gulp.task('js', function() {
 		.pipe($.sourcemaps.init())
 		.pipe($.jshint('.jshintrc'))
 		.pipe($.jshint.reporter('default'))
+		.pipe($.babel({
+			presets: ['env']
+		}))
 		.pipe($.include({
 	    extensions: 'js',
 	    hardFail: true,
