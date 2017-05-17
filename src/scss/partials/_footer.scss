@@ -8,7 +8,10 @@
 
 	.footer-links-social {
 		margin-bottom: 0;
-		text-align: right;
+		
+		@media (min-width: $md) {
+			text-align: right;
+		}
 
 		li {
 			&:not(:last-child) {

@@ -9,6 +9,10 @@
 	.hero-block {
 		padding: 75px 75px 30px;
 		background-color: $secondary-color;
+
+		@media (max-width: $sm - 1) {
+			padding: 50px 50px 20px;
+		}
 	}
 
 	.subheader {
