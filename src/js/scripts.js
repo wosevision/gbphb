@@ -5,60 +5,62 @@
 
   'use strict';
 
-  var galleries = {},
-      galleryConfigs = {};
-  var galleryLarge = '.gallery-large',
-      gallerySmall = '.gallery-small';
-  var galleryLargeImages = join(galleryLarge, '.gallery-images'),
-      galleryLargeCards = join(galleryLarge, '.gallery-cards'),
-      gallerySmallCards = join(gallerySmall, '.gallery-cards');
-  
-  galleryConfigs[galleryLargeImages] = {
-    loop: true,
-    nextButton: join(galleryLarge, '.swiper-button-next'),
-    prevButton: join(galleryLarge, '.swiper-button-prev'),
-    pagination: join(galleryLarge, '.swiper-pagination'),
-    paginationType: 'custom',
-    paginationCustomRender: paginationCustomRender,
-    spaceBetween: 10,
-    a11y: true
-  };
-  galleryConfigs[galleryLargeCards] = {
-    loop: true,
-    parallax: true,
-    touchRatio: 0.6,
-    effect: 'fade',
-    a11y: true
-  };
-  galleryConfigs[gallerySmallCards] = {
-    grabCursor: true,
-    nextButton: join(gallerySmall, '.swiper-button-next'),
-    prevButton: join(gallerySmall, '.swiper-button-prev'),
-    pagination: join(gallerySmall, '.swiper-pagination'),
-    slidesPerView: 'auto',
-    paginationClickable: true,
-    paginationType: 'custom',
-    paginationCustomRender: paginationCustomRender,
-    spaceBetween: 16
-  };
-
-  function join(parts) {
-    var args = [];
-    for (var i = 0; i < arguments.length; ++i) args[i] = arguments[i];
-    return args.join(' ');
+	const prependZero = (digit) => (digit < 10 && '0') + digit;
+	const paginationCustomRender = (_, current, total) => {
+    return `${prependZero(current)} / ${prependZero(total)}`;
   }
 
-  function prependZero(digit) {
-    return digit < 10 ? ('0' + digit) : digit;
-  }
+  const galleryLarge = '.gallery-large',
+      	gallerySmall = '.gallery-small',
 
-  function paginationCustomRender(swiper, current, total) {
-    return prependZero(current) + ' / ' + prependZero(total);
-  }
+      	galleryImages = '.gallery-images',
+      	galleryCards = '.gallery-cards',
 
-  function initStuff() {
-    for (var config in galleryConfigs) {
-      galleries[config] = new Swiper(config, galleryConfigs[config]);
+      	galleryLargeImages = `${galleryLarge} ${galleryImages}`,
+      	galleryLargeCards = `${galleryLarge} ${galleryCards}`,
+      	gallerySmallCards = `${gallerySmall} ${galleryCards}`,
+
+		    nextButton = '.swiper-button-next',
+		    prevButton = '.swiper-button-prev',
+		    pagination = '.swiper-pagination';
+
+  const galleryConfigs = {
+  	[galleryLargeImages]: {
+	    loop: true,
+	    nextButton: `${galleryLarge} ${nextButton}`,
+	    prevButton: `${galleryLarge} ${prevButton}`,
+	    pagination: `${galleryLarge} ${pagination}`,
+	    paginationType: 'custom',
+	    paginationCustomRender,
+	    spaceBetween: 10,
+	    a11y: true
+	  },
+	  [galleryLargeCards]: {
+	    loop: true,
+	    parallax: true,
+	    touchRatio: 0.6,
+	    effect: 'fade',
+	    a11y: true
+	  },
+  	[gallerySmallCards]: {
+	    grabCursor: true,
+	    nextButton: `${gallerySmall} ${nextButton}`,
+	    prevButton: `${gallerySmall} ${prevButton}`,
+	    pagination: `${gallerySmall} ${pagination}`,
+	    slidesPerView: 'auto',
+	    paginationClickable: true,
+	    paginationType: 'custom',
+	    paginationCustomRender,
+	    spaceBetween: 16,
+	    a11y: true
+	  }
+	};
+
+  const galleries = {};
+
+  const initStuff = () => {
+    for (const gallery in galleryConfigs) {
+      galleries[gallery] = new Swiper(gallery, galleryConfigs[gallery]);
     }
     galleries[galleryLargeImages].params.control = galleries[galleryLargeCards];
     galleries[galleryLargeCards].params.control = galleries[galleryLargeImages];
