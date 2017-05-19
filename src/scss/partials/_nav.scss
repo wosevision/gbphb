@@ -1,35 +1,15 @@
-.nav {
-	
-
-  ul {
-    list-style: none;
-    li {
-      a {
-
-      }
-    }
-  }
-}
-
 .nav-toggle {
+	position: relative;
+	z-index: 10;
 	display: flex;
 	align-items: center;
-
-	&:hover {
-		.ham-bars {
-			&::before,
-			&:after {
-
-			}
-		}
-	}
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
 }
 
 .nav-toggle-ham {
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	margin-right: 10px;
 	height: 30px;
 	width: 30px;
@@ -45,23 +25,23 @@
 }
 .ham-bars {
 	@extend %ham-bars;
-	position: relative;
 	width: 11px;
-	margin-right: 3px;
+	top: 50%;
+	left: (30px - 16px) / 2;
+	transition: 0.2s;
 
 	&::before,
 	&::after {
 		content: '';
 		@extend %ham-bars;
+		left: 0;
 		transition: 0.4s;
 	}
 	&::before {
 		top: -5px;
-		transition: 0.4s;
 	}
 	&::after {
 		top: 5px;
-		transition: 0.4s;
 	}
 }
 
@@ -69,7 +49,128 @@
 	font-size: 0.75em;
 	color: $white;
 	text-transform: uppercase;
+
+	&::after {
+		content: attr(data-text);
+	}
 }
+
+.nav-items {
+	padding: 0;
+	margin-top: 100px;
+	width: 100%;
+	max-width: 500px;
+	text-align: center;
+	list-style: none;
+}
+.nav-item {
+	padding: 10px 0;
+	opacity: 0;
+	transform: translateY(-30px);
+	transition-duration: 0.4s;
+
+	&:not(:last-child) {
+		border-bottom: dashed 1px $primary-color-tint-1;
+	}
+}
+.nav-link {
+	font-family: $font-family-serif;
+	font-size: 2.5em;
+	font-weight: 700;
+
+	@media (max-width: $md - 1) {
+		font-size: 1.5em;
+	}
+}
+
+.nav-wrapper {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	left: 0;
+	top: -100vh;
+	width: 100vw;
+	height: 100vh;
+	background-color: $white;
+	opacity: 0;
+	transition: 0.4s;
+}
+
+body:not(.nav-toggled) {
+	.nav-toggle {
+		&:hover {
+			.ham-bars {
+				width: 16px;
+
+				&::before,
+				&:after {
+					width: 12px;
+				}
+			}
+		}
+	}
+}
+
+
+// NAV IS TOGGLED
+// *******************************
+
+.nav-toggled {
+	overflow: hidden;
+
+	.nav-wrapper {
+		position: fixed;
+		z-index: 5;
+		top: 0;
+		opacity: 1;
+		overflow-y: auto;
+	}
+
+	.nav-item {
+		opacity: 1;
+		transform: translateY(0);
+
+		@for $i from 1 through 5 {
+			&:nth-child(#{$i}) {
+				transition-delay: $i / 6 * 1s;
+			}
+		}
+	}
+
+	.nav-toggle-text {
+		color: $primary-color;
+
+		&::after {
+			content: attr(data-text-toggle);
+		}
+	}
+	.nav-toggle-ham {
+		border-color: $primary-color;
+	}
+	.ham-bars::before,
+	.ham-bars::after {
+		top: 0;
+		background-color: $primary-color
+	}
+	.ham-bars::before {
+		transform: rotate(45deg);
+	}
+	.ham-bars::after  {
+		transform: rotate(-45deg);
+	}
+
+	.gbph-fill {
+		fill: $primary-color;
+	}
+	.gbph-box-stroke {
+		stroke: $primary-color;
+	}
+}
+
+
+
+// MINI SUB NAV
+// *******************************
 
 .nav-mini {
 	position: absolute;

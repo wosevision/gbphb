@@ -56,6 +56,11 @@
 	  }
 	};
 
+	const navToggle = document.getElementById('navToggle');
+	navToggle.addEventListener('click', function() {
+		$('body').toggleClass('nav-toggled');
+	});
+
   const galleries = {};
 
   const initStuff = () => {

@@ -8,10 +8,17 @@
 	align-items: flex-start;
 }
 .logo {
+	position: relative;
+	z-index: 9;
 	height: 90px;
+
+	@media (max-width: $md - 1) {
+		height: 75px;
+	}
 }
 .gbph-fill {
 	fill: $white;
+	transition: 0.2s;
 }
 .gbph-box-clip {
 	clip-rule: evenodd;
@@ -25,6 +32,9 @@
 	stroke-miterlimit: 10;
 	stroke-width: 7px;
 	stroke-dasharray: 480;
+}
+.logo:hover .gbph-box-stroke,
+.gbph-box-stroke {
 	animation-name: animateLogo;
 	animation-duration: 2.5s;
 	animation-fill-mode: forwards;
