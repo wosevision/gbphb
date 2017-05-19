@@ -4,6 +4,7 @@
 	</div>
 	<div class="col-sm-10">
 		<h2 class="block-header header-1">{{ module.title }}</h2>
+		{% if module.text %}
 		<div class="row block-intro">
 			<div class="col-lg-5 col-md-6">
 				<p>{{ module.text }}</p>
@@ -20,5 +21,6 @@
 				{% endif %}
 			</div>
 		</div>
+		{% endif %}
 	</div>
 </div>
