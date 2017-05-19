@@ -1,0 +1,66 @@
+---
+heroBlock:
+  large: true
+  bg: assets/img/banner/project-banner.jpg
+  header: $539 / yr*
+  subheader: Annual Heating Cost
+  subtext: '*assumes total heating demand of 11,977 kWh/year @ 4.5 cents/kWh , with no night setback (PHPP)'
+contentBlocks:
+  - modules:
+      - type: block-intro
+        title: Custom Cottage
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+      - type: blockquote
+        blockquoteText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+  - modules:
+      - type: block-intro
+        title: Services
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+      - type: gallery-small
+        slides:
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Wall Contrsuction
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Foundation
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Mechanical
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Magical
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+  - modules:
+      - type: block-intro
+        title: Gallery
+      - type: gallery-grid
+        slides:
+          - image: assets/img/gallery/gallery-grid-1.jpg
+          - image: assets/img/gallery/gallery-grid-2.jpg
+          - image: assets/img/gallery/gallery-grid-3.jpg
+          - image: assets/img/gallery/gallery-grid-4.jpg
+          - image: assets/img/gallery/gallery-grid-5.jpg
+          - image: assets/img/gallery/gallery-grid-6.jpg
+---
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+  
+{% include "partials/header.html" %}
+
+{% include "partials/hero.html" %}
+
+{% from "block.html" import renderContentBlock %}
+{% for block in contentBlocks %}
+{{ renderContentBlock(block.modules) }}
+{% endfor %}
+  
+{% include "partials/footer.html" %}
+
+{% endblock %}

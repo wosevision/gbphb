@@ -1,0 +1,19 @@
+<div class="row">
+	<div class="col-sm-12">
+		<div class="gallery-grid">
+			<!-- BEGIN GALLERY ROWS -->
+			<div class="row">
+				{% for slide in module.slides %}
+				<div class="col">
+					<!-- BEGIN GALLERY COLUMNS -->
+					<a href="#" class="gallery-image d-flex align-content-center">
+						<img src="{{ slide.image }}" />
+					</a>
+					<!-- END GALLERY COLUMNS -->
+				</div>
+				{% endfor %}
+			</div>
+			<!-- END GALLERY ROWSROWS -->
+		</div>
+	</div>
+</div>
