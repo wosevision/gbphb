@@ -1,14 +1,12 @@
 //=require jquery/dist/jquery.js 
 //=require swiper/dist/js/swiper.js 
-
-(function ($, Swiper, window, document, undefined) {
-
-  'use strict';
+'use strict';
+const Page = (function($, Swiper, window, document, undefined) {
 
 	const prependZero = (digit) => (digit < 10 && '0') + digit;
 	const paginationCustomRender = (_, current, total) => {
     return `${prependZero(current)} / ${prependZero(total)}`;
-  }
+  };
 
   const galleryLarge = '.gallery-large',
       	gallerySmall = '.gallery-small',
@@ -56,22 +54,29 @@
 	  }
 	};
 
-	const navToggle = document.getElementById('navToggle');
-	navToggle.addEventListener('click', function() {
-		$('body').toggleClass('nav-toggled');
-	});
-
-  const galleries = {};
-
-  const initStuff = () => {
-    for (const gallery in galleryConfigs) {
-      galleries[gallery] = new Swiper(gallery, galleryConfigs[gallery]);
-    }
-    galleries[galleryLargeImages].params.control = galleries[galleryLargeCards];
-    galleries[galleryLargeCards].params.control = galleries[galleryLargeImages];
-  }
-
-  // document ready
-  $(initStuff);
+	return class Page {
+		constructor() {
+		  this.galleries = {};
+		  for (const gallery in galleryConfigs) {
+		    this.galleries[gallery] = new Swiper(gallery, galleryConfigs[gallery]);
+		  }
+	    this.galleries[galleryLargeImages].params.control = this.galleries[galleryLargeCards];
+	    this.galleries[galleryLargeCards].params.control = this.galleries[galleryLargeImages];
+		}
+		
+		toggleNav() {
+			$('body').toggleClass('nav-toggled');
+		}
+	};
 
 })(jQuery, Swiper, window, document);
+
+  // document ready
+$(() => {
+	const page = new Page();
+	const navToggle = document.getElementById('navToggle');
+	navToggle.addEventListener('click', page.toggleNav);
+
+	console.log(page);
+});
+

@@ -20,6 +20,7 @@
   "trailing": false,
   "smarttabs": true,
   "globals" : {
+    "$": true,
     "jQuery": true,
     "Swiper": true
   }
