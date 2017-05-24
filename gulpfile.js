@@ -126,7 +126,13 @@ gulp.task('templates', function() {
 	return gulp.src(paths.html)
 		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
 		.pipe($.nunjucksRender({
-			path: [ sources.templates ]
+			path: [ sources.templates ],
+			manageEnv(environment) {
+			  environment.addFilter(
+			  	'slug',
+			  	str => str && str.replace(/\s/g, '-', str).toLowerCase()
+			  );
+			}
 		}))
 		.pipe(gulp.dest(base.dist));
 });

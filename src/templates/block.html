@@ -1,8 +1,9 @@
-{% macro renderContentBlock(modules) %}
+{% macro renderContentBlock(block) %}
 <section class="content-block">
 	<div class="container">
-		{% if modules %}
-			{% for module in modules %}
+		<a id="{{ block.title|slug }}"></a>
+		{% if block.modules %}
+			{% for module in block.modules %}
 				{% include "modules/" + module.type + ".html" %}
 			{% endfor %}
 		{% endif %}

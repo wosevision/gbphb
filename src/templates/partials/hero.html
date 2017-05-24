@@ -17,11 +17,11 @@
 			<div class="row">
 				<div class="col-md-12">
 					<ul class="nav-mini-list list-inline">
-						<li class="nav-mini-item"><a class="nav-mini-link" href="#">Our approach</a></li>
-						<li class="nav-mini-item"><a class="nav-mini-link" href="#">Our projects</a></li>
-						<li class="nav-mini-item"><a class="nav-mini-link" href="#">Our blog</a></li>
-						<li class="nav-mini-item"><a class="nav-mini-link" href="#">Our services</a></li>
-						<li class="nav-mini-item"><a class="nav-mini-link" href="#">Contact</a></li>
+						{% for block in contentBlocks %}
+						<li class="nav-mini-item">
+							<a href="#{{ block.title|slug }}" class="nav-mini-link{% if block.feature %} nav-button btn-secondary{% endif %}">{{ block.modules[0].title }}</a>
+						</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</div>

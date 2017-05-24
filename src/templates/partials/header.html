@@ -50,21 +50,11 @@
 		</button>
 		<div class="nav-wrapper">
 			<ul class="nav-items">
+				{% for block in contentBlocks %}
 				<li class="nav-item">
-					<a href="/" class="nav-link">Approach</a>
+					<a href="#" class="nav-link{% if block.feature %} nav-button btn-secondary{% endif %}">{{ block.title }}</a>
 				</li>
-				<li class="nav-item">
-					<a href="/" class="nav-link">Services</a>
-				</li>
-				<li class="nav-item">
-					<a href="/" class="nav-link">Projects</a>
-				</li>
-				<li class="nav-item">
-					<a href="/" class="nav-link">Blog</a>
-				</li>
-				<li class="nav-item">
-					<a href="/" class="nav-link btn-secondary">Get started</a>
-				</li>
+				{% endfor %}
 			</ul>
 		</div>
 	</nav>

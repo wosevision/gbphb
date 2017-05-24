@@ -1,18 +1,20 @@
 ---
 heroBlock:
-  - large: true
-  - bg: assets/img/banner/home-banner.jpg
-  - header: We build high efficiency homes.
-  - subheader: Let's build one together
-  - cta: Get Started
+  large: true
+  bg: assets/img/banner/home-banner.jpg
+  header: We build high efficiency homes.
+  subheader: Let's build one together
+  cta: Get Started
 contentBlocks:
-  - modules:
+  - title: Approach
+    modules:
       - type: block-intro
         title: Our Approach
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
       - type: blockquote
         blockquoteText: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
-  - modules:
+  - title: Projects
+    modules:
       - type: block-intro
         title: Our Projects
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
@@ -31,7 +33,8 @@ contentBlocks:
             heading: En amet odio efficitur sit amet eros sit convallis
             body: Lorem ipsum, consectetur adipiscing elit dolor sit amet. Aliquam aliquet vel nisi et aliquet. Phasellus, at dignissim erat vitae dignissim risus.
             button: Learn more
-  - modules:
+  - title: Blog
+    modules:
       - type: block-intro
         title: Our Blog
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
@@ -53,7 +56,8 @@ contentBlocks:
             heading: En sit amet eros sit amet odio efficitur convallis 
             body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
             button: Learn more
-  - modules:
+  - title: Services
+    modules:
       - type: block-intro
         title: Our Services
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
@@ -75,7 +79,9 @@ contentBlocks:
             heading: Magical
             body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
             button: Learn more
-  - modules:
+  - title: Get started
+    feature: true
+    modules:
       - type: block-intro
         title: Our Contact
         text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
@@ -94,7 +100,7 @@ contentBlocks:
 
 {% from "block.html" import renderContentBlock %}
 {% for block in contentBlocks %}
-{{ renderContentBlock(block.modules) }}
+{{ renderContentBlock(block) }}
 {% endfor %}
   
 {% include "partials/footer.html" %}
