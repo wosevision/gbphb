@@ -112,7 +112,7 @@ $gray-lightest:             $grey-tint-3;
 
 // // Reassign color vars to semantic color scheme
 $brand-primary:             $primary-color;
-$brand-success:             $secondary-color;
+// $brand-success:             $secondary-color;
 // $brand-info:                $teal !default;
 // $brand-warning:             $orange !default;
 // $brand-danger:              $red !default;
@@ -373,9 +373,9 @@ $btn-padding-y:                  10px;
 // $btn-primary-bg:                 $brand-primary !default;
 // $btn-primary-border:             $btn-primary-bg !default;
 
-// $btn-secondary-color:            $gray-dark !default;
-// $btn-secondary-bg:               $white !default;
-// $btn-secondary-border:           #ccc !default;
+$btn-secondary-color:            $primary-color;
+$btn-secondary-bg:               $secondary-color;
+$btn-secondary-border:           $secondary-color;
 
 // $btn-info-color:                 $white !default;
 // $btn-info-bg:                    $brand-info !default;
