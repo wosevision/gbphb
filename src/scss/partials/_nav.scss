@@ -69,6 +69,10 @@
 	transform: translateY(-30px);
 	transition-duration: 0.4s;
 
+	&:last-child {
+		margin-bottom: 50px;
+	}
+
 	&:not(:last-child) {
 		border-bottom: dashed 1px $primary-color-tint-1;
 	}
@@ -77,10 +81,16 @@
 	font-family: $font-family-serif;
 	font-size: 2.5em;
 	font-weight: 700;
+	transition: 0.25s;
 
 	@media (max-width: $md - 1) {
 		font-size: 1.5em;
 	}
+}
+.nav-button {
+	margin-top: 15px;
+	padding: 15px 40px;
+	display: inline-block;
 }
 
 .nav-wrapper {
@@ -147,6 +157,9 @@ body:not(.nav-toggled) {
 	.nav-toggle-ham {
 		border-color: $primary-color;
 	}
+	.ham-bars {
+		width: 14px;
+	}
 	.ham-bars::before,
 	.ham-bars::after {
 		top: 0;
@@ -157,6 +170,14 @@ body:not(.nav-toggled) {
 	}
 	.ham-bars::after  {
 		transform: rotate(-45deg);
+	}
+
+	.nav-toggle {
+		&:hover {
+			.ham-bars {
+				transform: rotate(90deg)
+			}
+		}
 	}
 
 	.gbph-fill {
