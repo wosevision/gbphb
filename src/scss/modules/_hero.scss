@@ -5,13 +5,25 @@
 	background-size: cover;
 	background-position: center;
 	background-color: $primary-color-tint-3;
+	background-attachment: fixed;
+
+	@media (max-width: $md - 1) {
+		padding-top: 200px;
+	}
+
+	@media (max-width: $sm - 1) {
+		padding-top: 150px;
+	}
 
 	.hero-block {
-		padding: 75px 75px 30px;
+		padding: 60px 75px;
 		background-color: $secondary-color;
 
+		@media (max-width: $md - 1) {
+			padding: 40px 50px;
+		}
 		@media (max-width: $sm - 1) {
-			padding: 50px 50px 20px;
+			padding: 30px 20px;
 		}
 	}
 
@@ -21,6 +33,18 @@
 	}
 
 	&-large {
-		padding-bottom: 300px;
+		padding-bottom: 50px;
+
+		.nav-mini {
+			margin-top: 250px;
+
+			@media (max-width: $md - 1) {
+				margin-top: 150px;
+			}
+
+			@media (max-width: $sm - 1) {
+				margin-top: 100px;
+			}
+		}
 	}
 }
