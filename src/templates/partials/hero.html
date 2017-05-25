@@ -18,8 +18,8 @@
 				<div class="col-md-12">
 					<ul class="nav-mini-list list-inline">
 						{% for block in contentBlocks %}
-						<li class="nav-mini-item">
-							<a href="#{{ block.title|slug }}" class="nav-mini-link{% if block.feature %} nav-button btn-secondary{% endif %}">{{ block.modules[0].title }}</a>
+						<li class="{% if block.feature %}nav-mini-button{% else %}nav-mini-item{% endif %}">
+							<a href="#{{ block.title|slug }}" class="{% if block.feature %}btn btn-secondary{% else %}nav-mini-link{% endif %}">{{ block.modules[0].title }}</a>
 						</li>
 						{% endfor %}
 					</ul>

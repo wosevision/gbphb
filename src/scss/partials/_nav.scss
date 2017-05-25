@@ -103,6 +103,7 @@
 	height: 100vh;
 	background-color: $white;
 	opacity: 0;
+	visibility: hidden;
 	transition: 0.4s;
 }
 
@@ -133,6 +134,7 @@ body:not(.nav-toggled) {
 		z-index: 5;
 		top: 0;
 		opacity: 1;
+		visibility: visible;
 		overflow-y: auto;
 	}
 
@@ -202,6 +204,7 @@ body:not(.nav-toggled) {
 
 .nav-mini-list {
 	display: flex;
+	align-items: center;
 	overflow-x: auto;
 }
 .nav-mini-item {
@@ -232,6 +235,12 @@ body:not(.nav-toggled) {
 		&::before {
 			height: 100%;
 		}
+	}
+}
+
+.nav-mini-item {
+	+ .nav-mini-button {
+		margin-left: 20px;
 	}
 }
 
