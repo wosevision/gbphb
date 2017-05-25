@@ -128,10 +128,16 @@ gulp.task('templates', function() {
 		.pipe($.nunjucksRender({
 			path: [ sources.templates ],
 			manageEnv(environment) {
-			  environment.addFilter(
-			  	'slug',
-			  	str => str && str.replace(/\s/g, '-', str).toLowerCase()
-			  );
+			  environment.addFilter('slug',
+			  	(text) => text
+			  		.toString()
+			  		.toLowerCase()
+				    .replace(/\s+/g, '-')           // Replace spaces with -
+				    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+				    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+				    .replace(/^-+/, '')             // Trim - from start of text
+				    .replace(/-+$/, '')             // Trim - from end of text
+				);
 			}
 		}))
 		.pipe(gulp.dest(base.dist));

@@ -19,7 +19,7 @@
 					<ul class="nav-mini-list list-inline">
 						{% for block in contentBlocks %}
 						<li class="{% if block.feature %}nav-mini-button{% else %}nav-mini-item{% endif %}">
-							<a href="#{{ block.title|slug }}" class="{% if block.feature %}btn btn-secondary{% else %}nav-mini-link{% endif %}">{{ block.modules[0].title }}</a>
+							<a href="{{ ('/' if block.feature else '#') + (block.title | slug) }}" class="{% if block.feature %}btn btn-secondary{% else %}nav-mini-link{% endif %}">{{ block.modules[0].title if block.modules[0].title else block.title }}</a>
 						</li>
 						{% endfor %}
 					</ul>
