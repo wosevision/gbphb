@@ -50,9 +50,9 @@
 		</button>
 		<div class="nav-wrapper">
 			<ul class="nav-items">
-				{% for block in contentBlocks %}
+				{% for link in navLinks %}
 				<li class="nav-item">
-					<a href="#" class="nav-link{% if block.feature %} nav-button btn-secondary{% endif %}">{{ block.title }}</a>
+					<a href="{{ link.href }}" class="nav-link{{ ' nav-button btn-secondary' if link.feature }}">{{ link.title }}</a>
 				</li>
 				{% endfor %}
 			</ul>

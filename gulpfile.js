@@ -123,21 +123,40 @@ gulp.task('js', function() {
  * - writes assets
  */
 gulp.task('templates', function() {
+	// title-to-URL slugification utility
+	const toSlug = text => text
+  		.toString()
+  		.toLowerCase()
+	    .replace(/\s+/g, '-') // Replace spaces with -
+	    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
+	    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+	    .replace(/^-+/, '') // Trim - from start of text
+	    .replace(/-+$/, ''); // Trim - from end of text
+	// global nav links, i.e. .html pages
+	const navLinks = [{
+  	title: 'Approach',
+  	href: '/'
+	},{
+		title: 'Services',
+		href: '/service.html'
+	},{
+		title: 'Projects',
+		href: '/project.html'
+	},{
+		title: 'Blog',
+		href: '/blog.html'
+	},{
+		title: 'Get Started',
+		feature: true,
+		href: '/'
+	}];
 	return gulp.src(paths.html)
 		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
 		.pipe($.nunjucksRender({
 			path: [ sources.templates ],
 			manageEnv(environment) {
-			  environment.addFilter('slug',
-			  	(text) => text
-			  		.toString()
-			  		.toLowerCase()
-				    .replace(/\s+/g, '-')           // Replace spaces with -
-				    .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
-				    .replace(/\-\-+/g, '-')         // Replace multiple - with single -
-				    .replace(/^-+/, '')             // Trim - from start of text
-				    .replace(/-+$/, '')             // Trim - from end of text
-				);
+			  environment.addFilter('slug', toSlug);
+			  environment.addGlobal('navLinks', navLinks);
 			}
 		}))
 		.pipe(gulp.dest(base.dist));
