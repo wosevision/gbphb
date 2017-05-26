@@ -4,6 +4,11 @@ const path = require('path'),
 			browserSync = require('browser-sync'),
 			moduleImporter = require('sass-module-importer'),
 			frontMatter = require('front-matter'),
+			source = require('vinyl-source-stream'),
+			buffer = require('vinyl-buffer'),
+			browserify = require('browserify'),
+			watchify = require('watchify'),
+			babelify = require('babelify'),
 			package = require('./package.json');
 
 /**
@@ -90,30 +95,39 @@ gulp.task('css', function() {
  * - writes minified file with sourcemaps to `app/assets`
  * - launches browserSync
  */
-gulp.task('js', function() {
-	gulp.src(paths.scripts)
-		.pipe($.sourcemaps.init())
-		.pipe($.jshint('.jshintrc'))
-		.pipe($.jshint.reporter('default'))
-		.pipe($.babel({
-			presets: ['env']
-		}))
-		.pipe($.include({
-	    extensions: 'js',
-	    hardFail: true,
-	    includePaths: [
-	      `${ __dirname }/node_modules`,
-	    ]
-	  }))
-		.pipe($.header(banner, { package : package }))
-		.pipe(gulp.dest(paths.scriptDest))
-		.pipe($.uglify())
-		.pipe($.header(banner, { package : package }))
-		.pipe($.rename({ suffix: '.min' }))
-		.pipe($.sourcemaps.write())
-		.pipe(gulp.dest(paths.scriptDest))
-		.pipe(browserSync.reload({stream:true, once: true}));
-});
+const bundle = watch => {
+  var bundler = watchify(browserify(paths.scripts, {
+  	debug: true
+  }).transform(babelify, {
+		presets: ['env']
+	}));
+  const rebundle = () => {
+    bundler.bundle()
+      .on('error', function(err) {
+      	console.error(err);
+      	this.emit('end');
+      })
+      .pipe(source('build.js'))
+      .pipe(buffer())
+      .pipe($.sourcemaps.init({
+      	loadMaps: true
+      }))
+      .pipe($.sourcemaps.write())
+      .pipe(gulp.dest(paths.scriptDest))
+			.pipe($.uglify())
+			.pipe($.header(banner, { package : package }))
+			.pipe($.rename({ suffix: '.min' }))
+      .pipe(gulp.dest(paths.scriptDest))
+			.pipe(browserSync.reload({stream:true, once: true}));
+  }
+  !!watch && bundler.on('update', () => {
+    console.log('Rebundling...');
+    rebundle();
+  });
+  rebundle();
+}
+const watch = () => bundle(true);
+gulp.task('js', () => bundle());
 
 /**
  * Generates static HTML assets from Nunjucks templates. This task:
@@ -186,4 +200,5 @@ gulp.task('default', ['images', 'css', 'js', 'templates', 'browser-sync'], funct
 	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
 	gulp.watch(path.join(sources.js, '**/*.js'), ['js']);
 	gulp.watch(path.join(base.src, '**/*.html'), ['templates', 'bs-reload']);
+	return watch();
 });
