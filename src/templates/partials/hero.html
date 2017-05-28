@@ -1,18 +1,29 @@
-<section class="hero{{ " hero-large" if heroBlock.large }}">
+<section class="hero{{ " hero-large" if heroBlock.large }}{{ " hero-small" if heroBlock.small }}">
 	<div id="hero-image" class="hero-image" style="background-image: url('{{ heroBlock.bg }}')"></div>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-7 col-md-9">
+			<div class="{{ "col-lg-7 col-md-9" if heroBlock.large }}{{ "col-xl-5 col-md-7" if heroBlock.small }}">
 				<div id="hero-block" class="hero-block">
 					<h1>{{ heroBlock.header }}</h1>
 					<span class="subheader">{{ heroBlock.subheader }}</span>
 					{% if heroBlock.subtext %}<p>{{ heroBlock.subtext }}</p>{% endif %}
 					{% if heroBlock.cta %}<a href="" class="btn btn-primary">{{ heroBlock.cta }}</a>{% endif %}
+					{% if heroBlock.share %}
+					<div class="icons-social">
+						<span class="icons-social-text">Share</span>
+						<ul class="icons-social-items list-inline">
+							<li class="icon-item"><a href="#"><span class="icon icon-twitter"></span></a></li>
+							<li class="icon-item"><a href="#"><span class="icon icon-facebook"></span></a></li>
+							<li class="icon-item"><a href="#"><span class="icon icon-linkedin"></span></a></li>
+						</ul>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>
 	</div>
-
+	
+	{% if heroBlock.large %}
 	<div class="nav-mini">
 		<div class="container">
 			<div class="row">
@@ -28,4 +39,5 @@
 			</div>
 		</div>
 	</div>
+	{% endif %}
 </section>
