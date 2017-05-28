@@ -118,15 +118,55 @@
 	&-grid {
 		.gallery-image {
 			position: relative;
-			display: block;
-			min-width: 20vw;
+			// min-width: 200px;
 			height: 40vh;
+			max-height: 300px;
+			min-height: 150px;
 			margin-bottom: 30px;
 			overflow: hidden;
 			content: '';
 			img {
 				object-fit: cover;
 				width: 100%;
+				transition: 0.4s;
+			}
+
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				background-color: rgba($secondary-color,0.9);
+				opacity: 0;
+				transform: translateY(-100%);
+				transition: 0.35s;
+			}
+			&::before {
+				content: '👀';
+				position: absolute;
+				z-index: 2;
+				top: 50%;
+				left: 50%;
+				font-size: 1.5em;
+				opacity: 0;
+				transform: translate(-50%, -100%);
+				transition: 0.35s;
+			}
+
+			&:hover {
+				img {
+					transform: scale(1.05);
+				}
+				&::after {
+					opacity: 1;
+					transform: translateY(0);
+				}
+				&::before {
+					opacity: 1;
+					transform: translate(-50%, -50%);
+				}
 			}
 		}
 	}

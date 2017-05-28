@@ -3,15 +3,48 @@
 		<div class="gallery-grid">
 			<!-- BEGIN GALLERY ROWS -->
 			<div class="row">
-				{% for slide in module.slides %}
-				<div class="col">
+				<div class="col-md-4 col-6">
 					<!-- BEGIN GALLERY COLUMNS -->
 					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ slide.image }}" />
+						<img src="{{ module.slides[0] }}" />
 					</a>
 					<!-- END GALLERY COLUMNS -->
 				</div>
-				{% endfor %}
+				<div class="col-md-4 col-6">
+					<!-- BEGIN GALLERY COLUMNS -->
+					<a href="#" class="gallery-image d-flex align-content-center">
+						<img src="{{ module.slides[1] }}" />
+					</a>
+					<!-- END GALLERY COLUMNS -->
+				</div>
+				<div class="col-md-4 col-6">
+					<!-- BEGIN GALLERY COLUMNS -->
+					<a href="#" class="gallery-image d-flex align-content-center">
+						<img src="{{ module.slides[2] }}" />
+					</a>
+					<!-- END GALLERY COLUMNS -->
+				</div>
+				<div class="col-lg-2 col-md-3 col-6">
+					<!-- BEGIN GALLERY COLUMNS -->
+					<a href="#" class="gallery-image d-flex align-content-center">
+						<img src="{{ module.slides[3] }}" />
+					</a>
+					<!-- END GALLERY COLUMNS -->
+				</div>
+				<div class="col-lg-4 col-md-3 col-6">
+					<!-- BEGIN GALLERY COLUMNS -->
+					<a href="#" class="gallery-image d-flex align-content-center">
+						<img src="{{ module.slides[4] }}" />
+					</a>
+					<!-- END GALLERY COLUMNS -->
+				</div>
+				<div class="col-md-6 col-6">
+					<!-- BEGIN GALLERY COLUMNS -->
+					<a href="#" class="gallery-image d-flex align-content-center">
+						<img src="{{ module.slides[5] }}" />
+					</a>
+					<!-- END GALLERY COLUMNS -->
+				</div>
 			</div>
 			<!-- END GALLERY ROWSROWS -->
 		</div>
