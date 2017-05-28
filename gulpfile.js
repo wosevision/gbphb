@@ -52,7 +52,7 @@ const paths = {
 	scripts: path.join(sources.js, 'scripts.js'),
 	html: path.join(sources.pages, '**/*.+(html|nunjucks|njk)'),
 	img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
-	fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff2?}'),
+	fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff,woff2}'),
 	// destinations
 	styleDest: path.join(sources.assets, 'css'),
 	scriptDest: path.join(sources.assets, 'js'),
