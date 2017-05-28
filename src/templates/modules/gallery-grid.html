@@ -1,52 +1,20 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="gallery-grid">
-			<!-- BEGIN GALLERY ROWS -->
 			<div class="row">
-				<div class="col-md-4 col-6">
-					<!-- BEGIN GALLERY COLUMNS -->
-					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ module.slides[0] }}" />
+				<!-- BEGIN GALLERY COLUMNS -->
+				{% for slide in module.slides %}
+				<div class="{{ slide.columns }}">
+					<a href="javascript:;" class="gallery-grid-image d-flex align-content-center">
+						<img src="{{ slide.image }}" />
 					</a>
-					<!-- END GALLERY COLUMNS -->
 				</div>
-				<div class="col-md-4 col-6">
-					<!-- BEGIN GALLERY COLUMNS -->
-					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ module.slides[1] }}" />
-					</a>
-					<!-- END GALLERY COLUMNS -->
-				</div>
-				<div class="col-md-4 col-6">
-					<!-- BEGIN GALLERY COLUMNS -->
-					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ module.slides[2] }}" />
-					</a>
-					<!-- END GALLERY COLUMNS -->
-				</div>
-				<div class="col-lg-2 col-md-3 col-6">
-					<!-- BEGIN GALLERY COLUMNS -->
-					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ module.slides[3] }}" />
-					</a>
-					<!-- END GALLERY COLUMNS -->
-				</div>
-				<div class="col-lg-4 col-md-3 col-6">
-					<!-- BEGIN GALLERY COLUMNS -->
-					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ module.slides[4] }}" />
-					</a>
-					<!-- END GALLERY COLUMNS -->
-				</div>
-				<div class="col-md-6 col-6">
-					<!-- BEGIN GALLERY COLUMNS -->
-					<a href="#" class="gallery-image d-flex align-content-center">
-						<img src="{{ module.slides[5] }}" />
-					</a>
-					<!-- END GALLERY COLUMNS -->
-				</div>
+				{% endfor %}
+				<!-- END GALLERY COLUMNS -->
 			</div>
-			<!-- END GALLERY ROWSROWS -->
+			<div class="gallery-grid-display">
+				<a href="javascript:;" class="gallery-grid-display-close">&times;</a>
+			</div>
 		</div>
 	</div>
 </div>

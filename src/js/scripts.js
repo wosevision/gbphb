@@ -52,7 +52,7 @@ const galleryConfigs = {
   }
 };
 
-class Page {
+class Gallery {
 	constructor() {
 	  this.galleries = {};
 	  for (const gallery in galleryConfigs) {
@@ -60,6 +60,16 @@ class Page {
 	  }
     this.galleries[galleryLargeImages].params.control = this.galleries[galleryLargeCards];
     this.galleries[galleryLargeCards].params.control = this.galleries[galleryLargeImages];
+
+    this.bindEvents();
+	}
+	toggleGridGallery() {
+		$('body').toggleClass('gallery-grid-display-open');
+	}
+
+	bindEvents() {
+		this.toggleGridGallery = this.toggleGridGallery.bind(this);
+		$('.gallery-grid-image, .gallery-grid-display-close, .gallery-grid-display').on('click', this.toggleGridGallery)
 	}
 }
 
@@ -113,7 +123,6 @@ class Nav {
 }
 
 $(() => {
-	const page = new Page();
 	const nav = new Nav({
 		container: 'body',
 		toggler: '#navToggle',
@@ -122,4 +131,5 @@ $(() => {
 		bgSpeed: 8
 	});
 
+	const gallery = new Gallery();
 });
