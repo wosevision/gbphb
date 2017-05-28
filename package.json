@@ -22,6 +22,7 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.11.1",
     "browserify": "^14.3.0",
+    "documentjs": "^0.4.4",
     "front-matter": "^2.1.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
@@ -56,6 +57,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "yarn && gulp",
+    "docs": "./node_modules/.bin/documentjs -w & python -m SimpleHTTPServer 4200 & open http://localhost:4200/styleguide",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

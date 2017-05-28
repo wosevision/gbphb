@@ -1,0 +1,8 @@
+{
+	"sites": {
+		"styles": {
+			"glob": "src/scss/**/*.{css,scss,md}",
+			"dest": "styleguide"
+		}
+	}
+}

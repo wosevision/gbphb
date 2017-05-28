@@ -1,3 +1,16 @@
+/**
+ * @stylesheet modules/_buttons.scss Buttons
+ * @parent style
+ *
+ * Just a good ol' button!
+ */
+
+/**
+ * @styles button Button
+ *
+ * Basic solid-fill button; available in all brand scheme colours.
+ * @demo demos/buttons/button.html
+ */
 .btn {
 	// padding: 10px 30px;
 	// border-radius: 20px;
@@ -8,3 +21,10 @@
 	font-weight: 400;
 	font-style: normal;
 }
+
+/**
+ * @styles button-outline Button - Outline
+ *
+ * Hollow button with transparent background and brand scheme colour border.
+ * @demo demos/buttons/button-outline.html
+ */
