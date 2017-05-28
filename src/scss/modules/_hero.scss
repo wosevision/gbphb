@@ -2,10 +2,6 @@
 	position: relative;
 	padding-top: 270px;
 	padding-bottom: 30px;
-	background-size: cover;
-	background-position: center;
-	background-color: $primary-color-tint-3;
-	background-attachment: fixed;
 
 	@media (max-width: $md - 1) {
 		padding-top: 200px;
@@ -13,6 +9,18 @@
 
 	@media (max-width: $sm - 1) {
 		padding-top: 150px;
+	}
+
+	.hero-image {
+		position: absolute; 
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-size: cover;
+		background-position: center;
+		background-color: $primary-color;
+		background-attachment: fixed;
 	}
 
 	.hero-block {
@@ -45,6 +53,12 @@
 			@media (max-width: $sm - 1) {
 				margin-top: 100px;
 			}
+		}
+	}
+
+	&-small {
+		.hero-image {
+			height: 480px;
 		}
 	}
 }
