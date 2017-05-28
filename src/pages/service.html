@@ -1,0 +1,32 @@
+---
+heroBlock:
+  small: true
+  bg: assets/img/banner/service-banner.jpg
+  header: Aliquam aliquet vel
+  subheader: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  share: true
+contentBlocks:
+  - title: Project
+    modules:
+      - type: block-intro
+        title: Custom Cottage
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+---
+
+
+{% extends "layout.html" %}
+
+{% block content %}
+  
+{% include "partials/header.html" %}
+
+{% include "partials/hero.html" %}
+
+{% from "block.html" import renderContentBlock %}
+{% for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{% endfor %}
+  
+{% include "partials/footer.html" %}
+
+{% endblock %}
