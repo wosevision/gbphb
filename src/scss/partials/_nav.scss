@@ -205,7 +205,7 @@ body:not(.nav-toggled) {
 
 .nav-mini-list {
 	display: flex;
-	align-items: center;
+	align-items: stretch;
 	overflow-x: auto;
 }
 .nav-mini-item {
@@ -237,9 +237,7 @@ body:not(.nav-toggled) {
 			height: 100%;
 		}
 	}
-}
-
-.nav-mini-item {
+	
 	+ .nav-mini-button {
 		margin-left: 20px;
 	}
@@ -262,4 +260,8 @@ body:not(.nav-toggled) {
 	&:hover {
 		color: $primary-color;
 	}
+}
+
+.nav-mini-button {
+	align-self: center;
 }
