@@ -42,8 +42,9 @@ const sources = {
 	sass: path.join(base.src, 'scss'),
 	js: path.join(base.src, 'js'),
 	img: path.join(base.src, 'img'),
+	fonts: path.join(base.src, 'fonts'),
 	// destinations
-	assets: path.join(base.dist, 'assets')
+	assets: path.join(base.dist, 'assets'),
 }
 const paths = {
 	// sources
@@ -51,10 +52,12 @@ const paths = {
 	scripts: path.join(sources.js, 'scripts.js'),
 	html: path.join(sources.pages, '**/*.+(html|nunjucks|njk)'),
 	img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
+	fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff2?}'),
 	// destinations
 	styleDest: path.join(sources.assets, 'css'),
 	scriptDest: path.join(sources.assets, 'js'),
 	imageDest: path.join(sources.assets, 'img'),
+	fontsDest: path.join(sources.assets, 'fonts'),
 }
 
 /**
@@ -184,6 +187,13 @@ gulp.task('images', function() {
 		.pipe(gulp.dest(paths.imageDest));
 });
 
+gulp.task('fonts', function() {
+  return gulp.src(paths.fonts)
+    .pipe($.changed(paths.fontsDest))
+    .pipe(gulp.dest(paths.fontsDest))
+    .pipe(browserSync.stream());
+});
+
 gulp.task('browser-sync', function() {
 	browserSync.init(null, {
 		server: {
@@ -196,9 +206,10 @@ gulp.task('bs-reload', function() {
 	browserSync.reload();
 });
 
-gulp.task('default', ['images', 'css', 'js', 'templates', 'browser-sync'], function() {
+gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync'], function() {
 	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
 	gulp.watch(path.join(sources.js, '**/*.js'), ['js']);
-	gulp.watch(path.join(base.src, '**/*.html'), ['templates', 'bs-reload']);
+	gulp.watch(paths.fonts, ['fonts']);
+	gulp.watch(paths.html, ['templates', 'bs-reload']);
 	return watch();
 });
