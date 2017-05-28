@@ -50,13 +50,13 @@
 
 .gallery {
 	&-large {
-		.gallery-top {
+		&-top {
 		}
-		.gallery-images {
+		&-images {
 			height: 400px;
 			width: 100%;
 		}
-		.gallery-bottom {
+		&-bottom {
 			position: relative;
 			top: -72px;
 			margin-bottom: -72px;
@@ -72,7 +72,7 @@
 				background-color: $primary-color-tint-2;
 			}
 		}
-		.gallery-cards {
+		&-cards {
 			box-sizing: border-box;
 			height: 200px;
 			padding: 10px 0;
