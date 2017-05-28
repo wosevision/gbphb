@@ -125,7 +125,7 @@ address {
 
 .subheader {
 	font-size: 1.375em;
-	line-height: 2em;
+	line-height: 1.5em;
 	font-family: $font-family-sans-serif;
 	font-weight: 700;
 	color: $primary-color;
@@ -186,5 +186,48 @@ address,
 		margin-right: 10px;
 		color: $secondary-color;
 		font-size: 1em;
+	}
+}
+
+.icons-social {
+	@media (min-width: $sm) {
+		display: flex;
+		align-items: center;
+	}
+
+	.icons-social-text {
+		display: block;
+		@media (min-width: $sm) {
+			margin-right: 30px;
+		}
+	}
+
+	.icons-social-items {
+		margin-bottom: 0;
+	}
+
+	.icon-item {
+		&:not(.last-child) {
+			margin-right: 1.25em;
+		}
+	}
+
+	.icon {
+		display: inline-block;
+		padding: 7px;
+		border-radius: 50%;
+		background-color: $primary-color;
+		color: $white; 
+		font-size: 0.875rem;
+		transition: 0.3s;
+	}
+
+	a {
+		&:hover {
+			.icon {
+				background-color: $primary-color-dark-1;
+				transform: scale(1.2);
+			}
+		}
 	}
 }

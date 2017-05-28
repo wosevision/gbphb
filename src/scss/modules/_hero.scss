@@ -3,7 +3,7 @@
 	padding-top: 270px;
 	padding-bottom: 30px;
 	overflow: hidden;
-	background-color: $primary-color;
+	background-color: $white;
 
 	@media (max-width: $md - 1) {
 		padding-top: 200px;
@@ -20,6 +20,7 @@
 		height: 100%;
 		width: 100%;
 		transform-origin: 50% 50%;
+		background-color: $primary-color-tint-3;
 		background-size: cover;
 		background-position: center;
 	}
@@ -38,11 +39,22 @@
 
 	.subheader {
 		display: block;
-		margin-bottom: 2em;
+		margin-bottom: 1.75em;
+
+		@media (max-width: $sm - 1) {
+			margin-bottom: 1em;
+		}
+	}
+
+	.icons-social {
+		.icon {
+			color: $secondary-color;
+		}
 	}
 
 	&-large {
 		padding-bottom: 50px;
+		background-color: $primary-color;
 
 		.nav-mini {
 			margin-top: 250px;
@@ -58,8 +70,18 @@
 	}
 
 	&-small {
+		padding-bottom: 0;
+
 		.hero-image {
 			height: 480px;
+
+			@media (max-width: $md - 1) {
+				height: 270px;
+			}
+
+			@media (max-width: $sm - 1) {
+				height: 170px;
+			}
 		}
 	}
 }

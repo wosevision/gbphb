@@ -6,17 +6,19 @@
 		margin-bottom: 0;
 	}
 
-	.footer-links-social {
+	.icons-social {
 		margin-bottom: 0;
-		
+
 		@media (min-width: $md) {
-			text-align: right;
+			display: flex;
+			justify-content: flex-end;
+		}
+		@media (max-width: $md - 1) {
+			margin-top: 15px;
 		}
 
-		li {
-			&:not(:last-child) {
-				margin-right: 25px;
-			}
+		.icon {
+			color: $primary-color-tint-1;
 		}
 	}
 }
