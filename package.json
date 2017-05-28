@@ -56,7 +56,7 @@
   "homepage": "https://github.com/wosevision/gbphb",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "yarn && gulp",
+    "start": "yarn --ignore-engines && gulp",
     "docs": "./node_modules/.bin/documentjs -w & python -m SimpleHTTPServer 4200 & open http://localhost:4200/styleguide",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
