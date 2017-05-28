@@ -2,6 +2,8 @@
 	position: relative;
 	padding-top: 270px;
 	padding-bottom: 30px;
+	overflow: hidden;
+	background-color: $primary-color;
 
 	@media (max-width: $md - 1) {
 		padding-top: 200px;
@@ -17,10 +19,9 @@
 		left: 0;
 		height: 100%;
 		width: 100%;
+		transform-origin: 50% 50%;
 		background-size: cover;
 		background-position: center;
-		background-color: $primary-color;
-		background-attachment: fixed;
 	}
 
 	.hero-block {
