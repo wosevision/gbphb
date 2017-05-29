@@ -92,6 +92,12 @@
 	margin-top: 15px;
 	padding: 15px 40px;
 	display: inline-block;
+	background-size: 100% 200%;
+	background-position: 0 100%;
+	background-repeat: no-repeat;
+	&:hover {
+		background-position: 0 0;
+	}
 }
 
 .nav-wrapper {
