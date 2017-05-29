@@ -15,11 +15,36 @@
 	// padding: 10px 30px;
 	// border-radius: 20px;
 	// border: solid 1px $grey-dark-1;
+	background-size: 202%;
+	background-position: 0 100%;
+	background-repeat: no-repeat;
 	// color: $grey-dark-1;
 	font-family: $font-family-sans-serif;
 	font-size: 0.875rem;
 	font-weight: 400;
 	font-style: normal;
+
+	&:hover {
+		background-position: 0 0;
+	}
+
+	@each $btn, $color, $bdr-color, $bg-color, $hov-color, $hov-bg-color in 
+		("primary", $btn-primary-color, $btn-primary-border, $btn-primary-bg, $btn-primary-color, $primary-color-dark-1),
+		("outline-primary", $btn-primary-bg, $btn-primary-border, transparent, $white, $primary-color),
+		("secondary", $btn-secondary-color, $btn-secondary-border, $btn-secondary-bg, $btn-secondary-color, $secondary-color-tint-1),
+		("outline-secondary", $primary-color, $primary-color, transparent, $primary-color, $secondary-color) {
+			&-#{$btn} {
+				border-color: $bdr-color;
+				background-color: $bg-color;
+				background-image: linear-gradient(to top, $bg-color 50%, $hov-bg-color 50%);
+				color: $color;
+
+				&:hover {
+					border-color: $hov-bg-color;
+					color: $hov-color;
+				}
+			}
+		}
 }
 
 /**
