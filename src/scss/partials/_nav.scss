@@ -101,19 +101,8 @@
 }
 
 .nav-wrapper {
-	display: flex;
-	justify-content: center;
-	position: absolute;
-	left: 0;
-	top: -100vh;
-	padding-left: 15px;
-	padding-right: 15px;
-	width: 100vw;
-	height: 100vh;
+	@extend %full-page-curtain;
 	background-color: $white;
-	opacity: 0;
-	visibility: hidden;
-	transition: 0.4s;
 }
 
 body:not(.nav-toggled) {
@@ -139,12 +128,7 @@ body:not(.nav-toggled) {
 	overflow: hidden;
 
 	.nav-wrapper {
-		position: fixed;
-		z-index: 5;
-		top: 0;
-		opacity: 1;
-		visibility: visible;
-		overflow-y: auto;
+		@extend %full-page-curtain-active;
 	}
 
 	.nav-item {
@@ -196,6 +180,41 @@ body:not(.nav-toggled) {
 	}
 	.gbph-box-stroke {
 		stroke: $primary-color;
+	}
+}
+
+
+// NAV IS SCROLLED
+// *******************************
+
+.nav-scrolled {
+	background-color: $white;
+
+	.logo {
+		height: 60px;
+
+		@media (max-width: $md - 1) {
+			height: 45px;
+		}
+	}
+
+	.gbph-fill {
+		fill: $primary-color;
+	}
+	.gbph-box-stroke {
+		stroke: $primary-color;
+	}
+
+	.nav-toggle-text {
+		color: $primary-color;
+	}
+	.nav-toggle-ham {
+		border-color: $primary-color;
+	}
+	.ham-bars,
+	.ham-bars::before,
+	.ham-bars::after {
+		background-color: $primary-color
 	}
 }
 
