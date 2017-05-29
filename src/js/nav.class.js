@@ -1,30 +1,46 @@
 import $ from 'jquery';
 
 export class Nav {
-	constructor({
+	constructor(nav, {
 		container,
 		toggler,
 		toggleClass,
-		background,
-		bgSpeed
+		scrolledClass,
+		hero
 	}) {
 		this.$window = $(window);
+		this.$nav = $(nav);
+
 		this.$container = $(container);
 		this.$toggler = $(toggler);
-		this.$background = $(background);
-
 		this.toggleClass = toggleClass;
-		this.bgSpeed = bgSpeed;
-		this.bgOffset = this.$background.offset().top;
+		this.scrolledClass = scrolledClass;
+
+		this.hero = {
+			$background: $(hero.background),
+			$container: $(hero.container),
+			speed: hero.speed
+		};
+
+		this.navScrolled = this.navPassedContainer || false;
 
 		this.bindEvents();
 	}
 
+	get bgOffset() {
+		return this.hero.$background.offset().top;
+	}
 	get scrollTop() {
 		return window.pageYOffset || document.documentElement.scrollTop;
 	}
 	get scrollFactor() {
-		return (this.scrollTop - this.bgOffset) / this.bgSpeed;
+		return (this.scrollTop - this.bgOffset) / this.hero.speed;
+	}
+	get bgContainerBottom() {
+		return this.hero.$container.position().top + this.hero.$container.outerHeight(true);
+	}
+	get navPassedContainer() {
+		return this.scrollTop > this.bgContainerBottom;
 	}
 	
 	onToggle() {
@@ -32,10 +48,20 @@ export class Nav {
 	}
 	onScroll() {
     const scaleFactor = (this.scrollFactor / 2000) + 1;
-    let transform = `scale(${scaleFactor}) translateY(${this.scrollFactor}px)`,
-    		opacity = 1 - (this.scrollFactor / 100);
+    const transform = `scale(${scaleFactor}) translateY(${this.scrollFactor}px)`,
+    			opacity = 1 - (this.scrollFactor / 100);
+		this.hero.$background.css({ transform, opacity });
 
-		this.$background.css({ transform, opacity });
+		if (!this.navScrolled && this.navPassedContainer) {
+			console.log('nav scrolled');
+			this.$nav.addClass(this.scrolledClass);
+			this.navScrolled = true;
+		}
+		if (this.navScrolled && !this.navPassedContainer) {
+			console.log('nav unscrolled');
+			this.$nav.removeClass(this.scrolledClass);
+			this.navScrolled = false;
+		}
 	}
 
 	bindEvents() {

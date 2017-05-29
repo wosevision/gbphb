@@ -4,12 +4,16 @@ import { Nav } from './nav.class';
 import { Gallery } from './gallery.class';
 
 $(() => {
-	const nav = new Nav({
+	const nav = new Nav('#header', {
 		container: 'body',
 		toggler: '#navToggle',
 		toggleClass: 'nav-toggled',
-		background: '#hero-image',
-		bgSpeed: 8
+		scrolledClass: 'nav-scrolled',
+		hero: {
+			background: '#hero-image',
+			container: '.hero',
+			speed: 8
+		}
 	});
 
 	const gallery = new Gallery({
