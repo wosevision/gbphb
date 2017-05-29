@@ -171,16 +171,13 @@
 	}
 	// end &-image
 	&-display {
-		@include position(fixed, 0px 0px 0px 0px);
-		display: none;
-		z-index: 100;
-		width: 100%;
-		height: 100%;
+		@extend %full-page-curtain;
     padding: 15px 30px 60px 30px;
 		background-color: rgba($secondary-color, 0.8);
 
 		&-open .gallery-grid-display {
-			display: flex;
+			@extend %full-page-curtain-active;
+			z-index: 101;
 		}
 
 		&-close {
