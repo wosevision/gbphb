@@ -123,10 +123,12 @@ const bundle = watch => {
       .pipe(gulp.dest(paths.scriptDest))
 			.pipe(browserSync.reload({stream:true, once: true}));
   }
-  !!watch && bundler.on('update', () => {
-    console.log('Rebundling...');
-    rebundle();
-  });
+  if (watch) {
+	  bundler.on('update', () => {
+	    console.log('Rebundling...');
+	    rebundle();
+	  });
+	}
   rebundle();
 }
 const watch = () => bundle(true);
@@ -208,7 +210,6 @@ gulp.task('bs-reload', function() {
 
 gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync'], function() {
 	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
-	gulp.watch(path.join(sources.js, '**/*.js'), ['js']);
 	gulp.watch(paths.fonts, ['fonts']);
 	gulp.watch(paths.html, ['templates', 'bs-reload']);
 	return watch();
