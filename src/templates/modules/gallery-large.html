@@ -1,9 +1,9 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div class="gallery-large">
-			<div class="gallery-large-top">
+			<div class="gallery-top">
 				<!-- BEGIN GALLERY IMAGES -->
-				<div class="swiper-container gallery-large-images">
+				<div class="swiper-container gallery-images">
 					<div class="swiper-wrapper">
 						{% for slide in module.slides %}
 						<div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
@@ -12,7 +12,7 @@
 				</div>
 				<!-- END GALLERY IMAGES -->
 			</div>
-			<div class="row gallery-large-bottom">
+			<div class="row gallery-bottom">
 				<div class="col-sm-10 offset-sm-1">
 					<div class="card">
 						<div class="card-header">
@@ -37,7 +37,7 @@
 						</div>
 						<div class="card-block">
 							<!-- BEGIN GALLERY CARDS -->
-							<div class="swiper-container gallery-large-cards">
+							<div class="swiper-container gallery-cards">
 								<div class="swiper-wrapper">
 		 							{% for slide in module.slides %}
 									<div class="swiper-slide">
