@@ -76,7 +76,9 @@ contentBlocks:
 
 {% from "block.html" import renderContentBlock %}
 {% for block in contentBlocks %}
+{% if not block.feature %}
 {{ renderContentBlock(block) }}
+{% endif %}
 {% endfor %}
   
 {% include "partials/footer.html" %}

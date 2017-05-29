@@ -2,7 +2,7 @@
 	<div id="hero-image" class="hero-image" style="background-image: url('{{ heroBlock.bg }}')"></div>
 	<div class="container">
 		<div class="row">
-			<div class="{{ "col-lg-7 col-md-9" if heroBlock.large }}{{ "col-xl-5 col-md-7" if heroBlock.small }}">
+			<div class="{{ "col-lg-7 col-md-9" if heroBlock.large }}{{ "col-xl-5 col-lg-7 col-md-9" if heroBlock.small }}">
 				<div id="hero-block" class="hero-block">
 					<h1>{{ heroBlock.header }}</h1>
 					<span class="subheader">{{ heroBlock.subheader }}</span>
