@@ -18,15 +18,15 @@
 						<div class="card-header">
 							<!-- BEGIN GALLERY CONTROLS -->
 							<div class="row align-items-center">
-								<div class="col-sm-8">
+								<div class="col-lg-8 col-md-7 col-sm-8">
 									<span>{{ module.title }}</span>
 								</div>
-								<div class="col-sm-4">
+								<div class="col-lg-4 col-md-5 col-sm-4">
 									<div class="row align-items-center">
-										<div class="col-sm-6 text-right"> 
+										<div class="col-md-6 col-sm-12 col-6 text-right"> 
 											<div class="swiper-pagination"></div>
 										</div>
-										<div class="col-sm-6 text-right"> 
+										<div class="col-md-6 col-sm-12 col-6 text-right"> 
 											<div class="swiper-button-prev"><i class="material-icons">arrow_back</i></div>
 											<div class="swiper-button-next"><i class="material-icons">arrow_forward</i></div>
 										</div>
@@ -44,7 +44,7 @@
 										<h3 data-swiper-parallax="-300">{{ slide.heading }}</h3>
 										<p data-swiper-parallax="-100">{{ slide.body }}</p>
 										<div class="text-right" data-swiper-parallax="-200">
-											<a href="#" class="btn btn-primary btn-outline">{{ slide.button }}</a>
+											<a href="#" class="btn btn-outline-primary">{{ slide.button }}</a>
 										</div>
 									</div>
 									{% endfor %}
