@@ -5,7 +5,7 @@
 				<!-- BEGIN GALLERY COLUMNS -->
 				{% for slide in module.slides %}
 				<div class="{{ slide.columns }}">
-					<a href="javascript:;" class="gallery-grid-image d-flex align-content-center">
+					<a href="#gallery-image_{{ loop.index }}" class="gallery-grid-image d-flex align-content-center">
 						<img src="{{ slide.image }}" />
 					</a>
 				</div>
@@ -13,7 +13,19 @@
 				<!-- END GALLERY COLUMNS -->
 			</div>
 			<div class="gallery-grid-display">
-				<a href="javascript:;" class="gallery-grid-display-close">&times;</a>
+				<a href="javascript:;" class="gallery-grid-display-close"><i class="material-icons">close</i></a>
+		    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+		        {% for slide in module.slides %}
+            <div class="swiper-slide" data-hash="gallery-image_{{ loop.index }}">
+            	<img src="{{ slide.image }}" />
+            </div>
+						{% endfor %}
+	        </div>
+					<div class="swiper-button-prev"><i class="material-icons">arrow_back</i></div>
+					<div class="swiper-button-next"><i class="material-icons">arrow_forward</i></div>
+	        <div class="swiper-pagination"></div>
+		    </div>
 			</div>
 		</div>
 	</div>
