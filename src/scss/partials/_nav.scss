@@ -184,64 +184,6 @@ body:not(.nav-toggled) {
 }
 
 
-// NAV IS SCROLLED
-// *******************************
-.header { 
-	perspective: 2000px;
-	&:before {
-		@include position(absolute, 0px 0px 0px 0px);
-		content: '';
-		display: block;
-		border-bottom: solid 0px $secondary-color;
-		-webkit-transition: 0.6s cubic-bezier(.8,.1,.35,1); //safari, dang
-		transition: 0.6s cubic-bezier(.8,.1,.35,1.6);
-		transform: rotateX(-90deg);
-		transform-origin: 50% 0%;
-	}
-	.logo {
-		transition: 0.6s ease-out;
-	}
-}
-.nav-scrolled {
-	padding-bottom: 15px;
-	&:before {
-		border-bottom: solid 2px $secondary-color;
-		background-color: rgba($white, 0.95);
-		transform: rotateX(0deg);
-	}
-
-	.logo {
-		-webkit-transition: 0.9s cubic-bezier(.8,.1,.35,1); //safari, dang
-		transition: 0.9s cubic-bezier(.8,.1,.35,1.6);
-		height: 60px;
-
-		@media (max-width: $md - 1) {
-			height: 45px;
-		}
-	}
-
-	.gbph-fill {
-		fill: $primary-color;
-	}
-	.gbph-box-stroke {
-		stroke: $primary-color;
-	}
-
-	.nav-toggle-text {
-		color: $primary-color;
-	}
-	.nav-toggle-ham {
-		border-color: $primary-color;
-	}
-	.ham-bars,
-	.ham-bars::before,
-	.ham-bars::after {
-		background-color: $primary-color
-	}
-}
-
-
-
 // MINI SUB NAV
 // *******************************
 
