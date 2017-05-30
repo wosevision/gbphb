@@ -4,6 +4,15 @@
 	margin-bottom: 30px;
 }
 
+.form-control {
+  border-bottom: 1px solid $primary-color-tint-2;
+	&[type="color"] {
+		max-width: 200px;
+		min-height: 50px;
+		padding: 0;
+	}
+}
+
 .label-header {
 	font-size: 0.75em;
 	font-weight: 500;
