@@ -50,7 +50,10 @@ const paths = {
 	// sources
 	styles: path.join(sources.sass, 'style.scss'),
 	scripts: path.join(sources.js, 'scripts.js'),
-	html: path.join(sources.pages, '**/*.+(html|nunjucks|njk)'),
+	html: [
+		path.join(sources.pages, '**/*.+(html|nunjucks|njk)'),
+		path.join(sources.templates, '**/*.+(html|nunjucks|njk)')
+	],
 	img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
 	fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff,woff2}'),
 	// destinations
@@ -178,7 +181,8 @@ gulp.task('templates', function() {
 			  environment.addGlobal('navLinks', navLinks);
 			}
 		}))
-		.pipe(gulp.dest(base.dist));
+		.pipe(gulp.dest(base.dist))
+		.pipe(browserSync.reload({stream:true}));
 });
 
 /**
@@ -211,6 +215,6 @@ gulp.task('bs-reload', function() {
 gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync'], function() {
 	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
 	gulp.watch(paths.fonts, ['fonts']);
-	gulp.watch(paths.html, ['templates', 'bs-reload']);
-	return watch();
+	gulp.watch(paths.html, ['templates']);
+	watch();
 });
