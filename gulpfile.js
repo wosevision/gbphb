@@ -154,20 +154,20 @@ gulp.task('templates', function() {
 	// global nav links, i.e. .html pages
 	const navLinks = [{
   	title: 'Approach',
-  	href: '/'
+  	href: 'index.html'
 	},{
 		title: 'Services',
-		href: '/service.html'
+		href: 'service.html'
 	},{
 		title: 'Projects',
-		href: '/project.html'
+		href: 'project.html'
 	},{
 		title: 'Blog',
-		href: '/blog.html'
+		href: 'blog.html'
 	},{
 		title: 'Get Started',
 		feature: true,
-		href: '/'
+		href: 'index.html'
 	}];
 	return gulp.src(paths.html)
 		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
