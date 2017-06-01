@@ -4,7 +4,7 @@
 		<a id="{{ block.title|slug }}"></a>
 		{% if block.modules %}
 			{% for module in block.modules %}
-				{% include "modules/" + module.type + ".html" %}
+				{% include "modules/" + module.type + ".njk" %}
 			{% endfor %}
 		{% endif %}
 	</div>

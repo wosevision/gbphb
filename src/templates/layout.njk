@@ -17,8 +17,13 @@
     <link href="assets/css/style.min.css" rel="stylesheet">
   </head>
   <body>
+  
+		{% include "partials/header.njk" %}
+		{% include "partials/hero.njk" %}
 
 		{% block content %} {% endblock %}
+  
+		{% include "partials/footer.njk" %}
 
     <script src="assets/js/build.js"></script>
 

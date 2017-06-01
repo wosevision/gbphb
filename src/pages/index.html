@@ -89,19 +89,13 @@ contentBlocks:
 ---
 
 
-{% extends "layout.html" %}
+{%- extends "layout.njk" %}
 
-{% block content %}
-  
-{% include "partials/header.html" %}
+{%- block content %}
 
-{% include "partials/hero.html" %}
-
-{% from "block.html" import renderContentBlock %}
-{% for block in contentBlocks %}
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
 {{ renderContentBlock(block) }}
-{% endfor %}
-  
-{% include "partials/footer.html" %}
+{%- endfor %}
 
-{% endblock %}
+{%- endblock %}

@@ -66,21 +66,15 @@ contentBlocks:
 ---
 
 
-{% extends "layout.html" %}
+{%- extends "layout.njk" %}
 
-{% block content %}
-  
-{% include "partials/header.html" %}
+{%- block content %}
 
-{% include "partials/hero.html" %}
-
-{% from "block.html" import renderContentBlock %}
-{% for block in contentBlocks %}
-{% if not block.feature %}
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{%- if not block.feature %}
 {{ renderContentBlock(block) }}
-{% endif %}
-{% endfor %}
-  
-{% include "partials/footer.html" %}
+{%- endif %}
+{%- endfor %}
 
-{% endblock %}
+{%- endblock %}

@@ -50,6 +50,11 @@
 		</button>
 		<div class="nav-wrapper">
 			<ul class="nav-items">
+				{#
+					GLOBAL: navLinks
+					This variable is initialized by Gulp in
+					the `templates` task (gulpfile.js:155).
+				#}
 				{% for link in navLinks %}
 				<li class="nav-item">
 					<a href="{{ link.href }}" class="nav-link{{ ' nav-button btn-secondary' if link.feature }}">{{ link.title }}</a>
