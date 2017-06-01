@@ -55,7 +55,12 @@
 		height: 400px;
 		width: 100%;
 
-		.swiper-slide {
+		.swiper-image {
+			height: 100%;
+			width: 100%;
+			background-size: 100%;
+			background-position: center;
+			background-color: $primary-color-tint-3;
 			transition: 0.4s;
 		}
 	}
@@ -82,7 +87,21 @@
 		.swiper-slide {
 			width: 100%;
 			height: 100%;
+			background-size: 100%;
 			background-color: $primary-color-tint-2;
+		}
+	}
+
+	.card-title a {
+		transition: 0.2s;
+	}
+
+	&:hover {
+		.swiper-slide-active .swiper-image {
+			background-size: 105%;
+		}
+		.card-title a {
+			color: $secondary-color;
 		}
 	}
 }
@@ -99,6 +118,7 @@
 		&-image {
 			overflow: hidden;
 			margin-bottom: 1.1875rem;
+			background-color: $primary-color-tint-3;
 
 			img {
 				width: 100%;
@@ -118,8 +138,13 @@
 				max-width: 300px;
 			}
 
+			.card-header a,
+			.cta-link {
+				transition: 0.2s;
+			}
+
 			&:hover {
-				.card-header,
+				.card-header a,
 				.cta-link {
 					color: $secondary-color;
 				}
@@ -144,6 +169,7 @@
 		max-height: 300px;
 		min-height: 100px;
 		margin-bottom: 30px;
+		background-color: $primary-color-tint-3;
 		overflow: hidden;
 		content: '';
 		img {

@@ -6,7 +6,9 @@
 				<div class="swiper-container gallery-images">
 					<div class="swiper-wrapper">
 						{% for slide in module.slides %}
-						<div class="swiper-slide" style="background-image:url({{ slide.image }})"></div>
+						<div class="swiper-slide">
+							<div class="swiper-image" style="background-image:url({{ slide.image }})"></div>
+						</div>
 						{% endfor %}
 					</div>
 				</div>
@@ -41,7 +43,7 @@
 								<div class="swiper-wrapper">
 		 							{% for slide in module.slides %}
 									<div class="swiper-slide">
-										<h3 data-swiper-parallax="-300">{{ slide.heading }}</h3>
+										<h3 class="card-title" data-swiper-parallax="-300"><a href="#">{{ slide.heading }}</a></h3>
 										<p data-swiper-parallax="-100">{{ slide.body }}</p>
 										<div class="text-right" data-swiper-parallax="-200">
 											<a href="#" class="btn btn-outline-primary">{{ slide.button }}</a>
