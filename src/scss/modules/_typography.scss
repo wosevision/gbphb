@@ -68,15 +68,19 @@ h6,
 
 p {
 	font-size: 0.875em;
-	line-height: 1.57em;
-	font-weight: 400;
+	line-height: 1.85em;
+	font-weight: 300;
 
 	a {
 		border-bottom: dashed 1px;
 
 		&:hover {
 			border-bottom: solid 1px;
+		}
 	}
+
+	+ blockquote {
+		margin-top: 2rem;
 	}
 }
 
@@ -113,6 +117,10 @@ blockquote,
 		font-style: normal;
 		font-size: 0.875rem;
 		text-align: right;
+	}
+
+	+ p {
+		margin-top: 2rem;
 	}
 }
 

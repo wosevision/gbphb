@@ -8,7 +8,9 @@
 							<div class="swiper-wrapper">
 								{% for slide in module.slides %}
 								<div class="swiper-slide">
-									<img class="card-image" src="{{ slide.image }}" />
+									<div class="card-image">
+										<img src="{{ slide.image }}" />
+									</div>
 									<div class="swiper-no-swiping">
 										<span class="category-label">Category</span>
 										<h3 class="card-header">{{ slide.heading }}</h3>

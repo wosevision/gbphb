@@ -190,6 +190,10 @@ body:not(.nav-toggled) {
 .nav-mini {
 	width: 100%;
 	counter-reset: navnum;
+	
+	@media (max-width: $sm - 1) {
+		display: none;
+	}
 }
 
 .nav-mini-list {

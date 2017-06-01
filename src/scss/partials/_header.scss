@@ -58,7 +58,8 @@
 	animation-name: animateLogo;
 	animation-duration: 2.5s;
 	animation-fill-mode: forwards;
-	animation-timing-function: cubic-bezier(0.4,1.17,.95,-.44);
+	animation-timing-function: ease-out;
+	// animation-timing-function: cubic-bezier(0.4,1.17,.95,-.44);
 }
 .gbph-box {
 	clip-path: url(#box-clip-path);

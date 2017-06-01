@@ -54,6 +54,10 @@
 	.gallery-images {
 		height: 400px;
 		width: 100%;
+
+		.swiper-slide {
+			transition: 0.4s;
+		}
 	}
 	.gallery-bottom {
 		position: relative;
@@ -93,8 +97,13 @@
 			background: none;
 		}
 		&-image {
-			width: 100%;
+			overflow: hidden;
 			margin-bottom: 1.1875rem;
+
+			img {
+				width: 100%;
+				transition: 0.4s;
+			}
 		}
 	}
 	.swiper {
@@ -107,6 +116,16 @@
 
 			@media (max-width: $sm - 1) {
 				max-width: 300px;
+			}
+
+			&:hover {
+				.card-header,
+				.cta-link {
+					color: $secondary-color;
+				}
+				.card-image img {
+					transform: scale(1.05);
+				}
 			}
 		}
 	}
@@ -177,7 +196,7 @@
 	&-display {
 		@extend %full-page-curtain;
     padding: 15px 30px 60px 30px;
-		background-color: rgba($secondary-color, 0.8);
+		background-color: rgba($primary-color, 0.95);
 
 		&-open .gallery-grid-display {
 			@extend %full-page-curtain-active;
@@ -187,11 +206,12 @@
 		&-close {
 			@include position(fixed, 15px auto auto 30px);
 			z-index: 101;
+			color: $secondary-color;
 			i {
 				font-size: 1.875em;
 			}
 			&:hover, &:focus {
-				color: $primary-color-dark-1;
+				color: $secondary-color-tint-1;
 			}
 		}
 
@@ -212,6 +232,7 @@
 				&-next, &-prev {
 					position: absolute;
 					display: block;
+					color: $secondary-color;
 				}
 			}
 
@@ -219,6 +240,7 @@
 				@include position(fixed, auto auto 15px 0px);
 				display: block;
 				width: 100%;
+				color: $white;
 			}
 		}
 		// end .swiper
