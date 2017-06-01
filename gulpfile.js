@@ -1,4 +1,5 @@
 const path = require('path'),
+			del = require('del'),
 			gulp = require('gulp'),
 			$ = require('gulp-load-plugins')(),
 			browserSync = require('browser-sync'),
@@ -50,10 +51,8 @@ const paths = {
 	// sources
 	styles: path.join(sources.sass, 'style.scss'),
 	scripts: path.join(sources.js, 'scripts.js'),
-	html: [
-		path.join(sources.pages, '**/*.+(html|nunjucks|njk)'),
-		path.join(sources.templates, '**/*.+(html|nunjucks|njk)')
-	],
+	html: path.join(sources.pages, '**/*.+(html|njk)'),
+	njk: path.join(sources.templates, '**/*.+(html|njk)'),
 	img: path.join(sources.img, '**/*.+(jpg|jpeg|gif|png|svg)'),
 	fonts: path.join(sources.fonts, '**/*.{eot,svg,ttf,woff,woff2}'),
 	// destinations
@@ -74,7 +73,7 @@ const paths = {
  * - writes minified file with sourcemaps to `app/assets`
  * - launches browserSync
  */
-gulp.task('css', function() {
+gulp.task('css', ['clean'], function() {
 	return gulp.src(paths.styles)
 		.pipe($.sourcemaps.init())
 		.pipe($.plumber({errorHandler: $.notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
@@ -135,7 +134,7 @@ const bundle = watch => {
   rebundle();
 }
 const watch = () => bundle(true);
-gulp.task('js', () => bundle());
+gulp.task('js', ['clean'], () => bundle());
 
 /**
  * Generates static HTML assets from Nunjucks templates. This task:
@@ -144,7 +143,7 @@ gulp.task('js', () => bundle());
  * - renders Nunjucks templates in `src/templates`
  * - writes assets
  */
-gulp.task('templates', function() {
+gulp.task('templates', ['clean'], function() {
 	// title-to-URL slugification utility
 	const toSlug = text => text
   		.toString()
@@ -188,12 +187,12 @@ gulp.task('templates', function() {
 /**
  * Copy static image assets to `app/assets`
  */
-gulp.task('images', function() {
+gulp.task('images', ['clean'], function() {
 	return gulp.src(paths.img)
 		.pipe(gulp.dest(paths.imageDest));
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', ['clean'], function() {
   return gulp.src(paths.fonts)
     .pipe($.changed(paths.fontsDest))
     .pipe(gulp.dest(paths.fontsDest))
@@ -212,9 +211,13 @@ gulp.task('bs-reload', function() {
 	browserSync.reload();
 });
 
+gulp.task('clean', function() {
+  return del([base.dist]);
+});
+
 gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync'], function() {
 	gulp.watch(path.join(sources.sass, '**/*.scss'), ['css']);
 	gulp.watch(paths.fonts, ['fonts']);
-	gulp.watch(paths.html, ['templates']);
+	gulp.watch([paths.html, paths.njk], ['templates']);
 	watch();
 });
