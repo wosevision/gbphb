@@ -177,7 +177,8 @@ address {
 	position: relative;
 	&:before {
 		@include icon();
-		font-size: 1.5em;
+		font-size: 1.25em;
+		line-height: inherit;
 		position: absolute;
 		display: block;
 		right: 100%;

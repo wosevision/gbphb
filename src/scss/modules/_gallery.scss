@@ -17,22 +17,25 @@
 			width: auto;
 			height: auto;
 			margin: 0;
-			.material-icons {
-				font-size: 2rem;
-				line-height: inherit;
+			.arrow {
 				transition: 0.3s ease-in-out;
+			}
+			&:hover {
+				.arrow {
+					color: $secondary-color;
+				}
 			}
 		}
 		&-next {
 			margin-left: 0.4375rem;
-			&:hover .material-icons {
+			&:hover .arrow {
 				transform: translateX(5px);
 			}
 		}
 		&-prev {
 			margin-right: 0.4375rem;
-			&:hover .material-icons {
-				transform: translateX(-5px);
+			&:hover .arrow {
+				transform: rotateY(180deg) translateX(5px);
 			}
 		}
 	}
@@ -272,4 +275,24 @@
 		// end .swiper
 	}
 	// end &-display
+}
+
+.arrow {
+	height: 22px;
+	width: 22px;
+	color: $primary-color;
+	
+	&-left {
+		transform: rotateY(180deg);
+	}
+	&-head {
+		fill: currentColor;
+	}
+	&-line {
+		fill: none;
+		stroke: currentColor;
+		stroke-linecap: square;
+		stroke-miterlimit: 10;
+		stroke-width: 1px;
+	}
 }
