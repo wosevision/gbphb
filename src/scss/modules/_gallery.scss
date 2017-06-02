@@ -17,9 +17,15 @@
 			width: auto;
 			height: auto;
 			margin: 0;
+			
 			.arrow {
 				transition: 0.3s ease-in-out;
 			}
+
+			&:focus {
+				outline: none;
+			}
+			&:focus, 
 			&:hover {
 				.arrow {
 					color: $secondary-color;
@@ -65,6 +71,10 @@
 			background-position: center;
 			background-color: $primary-color-tint-3;
 			transition: 0.4s;
+
+			@media (max-width: $lg - 1) {
+				background-size: cover;
+			}
 		}
 	}
 	.gallery-bottom {
@@ -100,8 +110,10 @@
 	}
 
 	&:hover {
-		.swiper-slide-active .swiper-image {
-			background-size: 105%;
+		@media (min-width: $lg) {
+			.swiper-slide-active .swiper-image {
+				background-size: 105%;
+			}
 		}
 		.card-title a {
 			color: $secondary-color;
@@ -281,7 +293,7 @@
 	height: 22px;
 	width: 22px;
 	color: $primary-color;
-	
+
 	&-left {
 		transform: rotateY(180deg);
 	}
