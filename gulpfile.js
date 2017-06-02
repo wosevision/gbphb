@@ -73,7 +73,7 @@ const paths = {
  * - writes minified file with sourcemaps to `app/assets`
  * - launches browserSync
  */
-gulp.task('css', ['clean'], function() {
+gulp.task('css', function() {
 	return gulp.src(paths.styles)
 		.pipe($.sourcemaps.init())
 		.pipe($.plumber({errorHandler: $.notify.onError('YOUR SASS IS WACK!\n<%= error.message %>')}))
@@ -134,7 +134,7 @@ const bundle = watch => {
   rebundle();
 }
 const watch = () => bundle(true);
-gulp.task('js', ['clean'], () => bundle());
+gulp.task('js', () => bundle());
 
 /**
  * Generates static HTML assets from Nunjucks templates. This task:
@@ -143,7 +143,7 @@ gulp.task('js', ['clean'], () => bundle());
  * - renders Nunjucks templates in `src/templates`
  * - writes assets
  */
-gulp.task('templates', ['clean'], function() {
+gulp.task('templates', function() {
 	// title-to-URL slugification utility
 	const toSlug = text => text
   		.toString()
@@ -187,12 +187,12 @@ gulp.task('templates', ['clean'], function() {
 /**
  * Copy static image assets to `app/assets`
  */
-gulp.task('images', ['clean'], function() {
+gulp.task('images', function() {
 	return gulp.src(paths.img)
 		.pipe(gulp.dest(paths.imageDest));
 });
 
-gulp.task('fonts', ['clean'], function() {
+gulp.task('fonts', function() {
   return gulp.src(paths.fonts)
     .pipe($.changed(paths.fontsDest))
     .pipe(gulp.dest(paths.fontsDest))

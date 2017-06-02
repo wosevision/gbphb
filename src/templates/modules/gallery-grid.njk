@@ -18,13 +18,15 @@
 	        <div class="swiper-wrapper">
 		        {% for slide in module.slides %}
             <div class="swiper-slide" data-hash="gallery-image_{{ loop.index }}">
-            	<img src="{{ slide.image }}" />
+            	<div class="parallax-wrapper">
+	            	<img src="{{ slide.image }}" class="layer" data-depth="0.3" />
+            	</div>
             </div>
 						{% endfor %}
 	        </div>
 					<div class="swiper-button-prev"><i class="material-icons">arrow_back</i></div>
 					<div class="swiper-button-next"><i class="material-icons">arrow_forward</i></div>
-	        <div class="swiper-pagination"></div>
+	        <div class="swiper-pagination layer" data-depth="0.1"></div>
 		    </div>
 			</div>
 		</div>

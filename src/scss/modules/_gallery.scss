@@ -262,9 +262,10 @@
 				height: 100%;
 			}
 			&-slide {
-				text-align: center;
 				img {
 					width: auto;
+					left: auto !important;
+					top: auto !important;
 					height: 100%;
 				}
 			}
@@ -273,6 +274,8 @@
 				&-next, &-prev {
 					position: absolute;
 					display: block;
+					left: auto !important;
+					top: 50% !important;
 					color: $secondary-color;
 				}
 			}
@@ -280,11 +283,18 @@
 			&-pagination {
 				@include position(fixed, auto auto 15px 0px);
 				display: block;
+				left: auto !important;
+				top: auto !important;
 				width: 100%;
 				color: $white;
 			}
 		}
 		// end .swiper
+		.parallax-wrapper {
+			@include position(absolute, 0px 0px 0px 0px);
+			display: flex;
+			justify-content: center;
+		}
 	}
 	// end &-display
 }

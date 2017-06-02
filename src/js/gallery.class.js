@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Swiper from 'swiper';
+import Parallax from 'parallax-js';
 
 const prependZero = (digit) => (digit < 10 && '0') + digit;
 const paginationCustomRender = (_, current, total) => {
@@ -82,9 +83,10 @@ export class Gallery {
 	  this.galleries = {};
 		this.grid = {
 			$container: $(grid.container),
+			$gallery: $(grid.gallery),
 			$opener: $(grid.opener),
 			$closer: $(grid.closer),
-			openClass: grid.openClass,
+			openClass: grid.openClass
 		};
 
 	  for (const gallery in galleryConfigs) {
@@ -93,16 +95,23 @@ export class Gallery {
     this.galleries[galleryLargeImages].params.control = this.galleries[galleryLargeCards];
     this.galleries[galleryLargeCards].params.control = this.galleries[galleryLargeImages];
 
+		this.grid.parallax = new Parallax(this.grid.$gallery[0], {
+		  pointerEvents: true
+		});
+		this.grid.parallax.disable();
+
     this.bindEvents();
 	}
 
 	openGridGallery() {
 		this.grid.$container.addClass(this.grid.openClass);
+		this.grid.parallax.enable();
 	}
 
 	closeGridGallery(event) {
 		event.stopPropagation();
 		this.grid.$container.removeClass(this.grid.openClass);
+		this.grid.parallax.disable();
 	}
 
 	bindEvents() {
