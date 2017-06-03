@@ -1,3 +1,14 @@
+%form-fancy-decor {
+	position: absolute;
+	z-index: -1;
+	bottom: -2px;
+	left: 0;
+	width: 100%; 
+	height: 2px;
+	background-color: $grey;
+	transition: background-color 0.1s 0.3s, height 0.3s ease-in;
+}
+
 .form-group {
 	position: relative;
 	z-index: 1;
@@ -5,7 +16,7 @@
 }
 
 .form-control {
-  border-bottom: 1px solid $primary-color-tint-2;
+	border-bottom: 1px solid $primary-color-tint-2;
 	&[type="color"] {
 		max-width: 200px;
 		min-height: 50px;
@@ -55,24 +66,83 @@
 		}
 
 		+ .form-fancy-decor {
-			height: calc(100% - 1.25rem);
+			height: calc(100% - 1.75rem);
 			background-color: $secondary-color;
 			transition: background-color 0.2s, height 0.3s 0.2s ease-out;
 		}
 	}
 
 	+ .form-fancy-decor {
-		position: absolute;
-		z-index: -1;
-		bottom: -5px;
-		left: 0;
-		width: 100%; 
-		height: 2px;
-		background-color: $grey;
-		transition: background-color 0.1s 0.3s, height 0.3s ease-in;
+		@extend %form-fancy-decor;
 	}
 }
 
 textarea.form-fancy {
 	resize: none;
+}
+
+.input-group {
+	.form-fancy {
+		&:focus {
+			+ .form-fancy-decor {
+				height: calc(100% + 2px);
+			}
+		}
+	}
+
+	.input-group-addon {
+		+ .form-fancy {
+			padding-left: .75rem;
+		}
+	}
+}
+
+
+.form-fancy-radio {
+	display: flex;
+
+	.radio-block {
+		flex: 1;
+		text-align: center;
+
+		&:not(:first-child) {
+			margin-left: 5px;
+		}
+		&:not(:last-child) {
+			margin-right: 5px;
+		}
+	}
+	.radio-control {
+		position: absolute;
+		opacity: 0;
+
+		&:checked {
+			+ .radio-label {
+				&::after {
+					height: calc(100% + 2px);
+					background-color: $secondary-color;
+					transition: background-color 0.2s, height 0.3s 0.2s ease-out;
+				}
+			}
+		}
+	}
+	.radio-label {
+		position: relative;
+		z-index: 1;
+		margin-bottom: 0;
+		padding: .5rem .75rem;
+		width: 100%;
+		line-height: 1.875rem;
+		cursor: pointer;
+		transition: 0.3s;
+
+		&:hover {
+			background-color: $grey-tint-2;
+		}
+
+		&::after {
+			content: '';
+			@extend %form-fancy-decor;
+		}
+	}
 }

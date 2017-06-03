@@ -40,22 +40,38 @@
 				<div class="col-lg-5 col-sm-6">
 					<div class="form-group">
 						<label class="label-header" for="">Looking to build or renovate?</label>
-						<input type="text" class="form-control form-fancy" placeholder="123.456.7890"/>
-						<span class="form-fancy-decor"></span>
+						<div class="form-fancy-radio">
+							<div class="radio-block">
+								<input type="radio" name="purposeBtn" id="radio1" class="radio-control"/>
+								<label for="radio1" class="radio-label">Build</label>
+							</div>
+							<div class="radio-block">
+								<input type="radio" name="purposeBtn" id="radio2" class="radio-control"/>
+								<label for="radio2" class="radio-label">Renovate</label>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-5 col-sm-6">
 					<div class="form-group">
 						<label class="label-header" for="">Estimated square footage of the build</label>
-						<input type="text" class="form-control form-fancy" placeholder="123.456.7890"/>
-						<span class="form-fancy-decor"></span>
+						<div class="input-group">
+							<input type="number" class="form-control form-fancy" value="2000" min="100" step="100"/>
+							<span class="form-fancy-decor"></span>
+							<span class="input-group-addon">
+								<span>sq<sup>2</sup></span>
+							</span>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-5 col-sm-6">
 					<div class="form-group">
 						<label class="label-header" for="">Estimated budget</label>
-						<input type="text" class="form-control form-fancy" placeholder="123.456.7890"/>
-						<span class="form-fancy-decor"></span>
+						<div class="input-group">
+							<span class="input-group-addon">$</span>
+							<input type="number" class="form-control form-fancy" value="50" min="50" step="50"/>
+							<span class="form-fancy-decor"></span>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-10 text-right">
