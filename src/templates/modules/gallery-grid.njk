@@ -18,8 +18,8 @@
 	        <div class="swiper-wrapper">
 		        {% for slide in module.slides %}
             <div class="swiper-slide" data-hash="gallery-image_{{ loop.index }}">
-            	<div class="parallax-wrapper">
-	            	<img src="{{ slide.image }}" class="layer" data-depth="0.3" />
+            	<div class="parallax-wrapper" data-move-x="0.5" data-move-y="0.1"> {# data-rotate-z="0.1" #}
+	            	<img src="{{ slide.image }}" />
             	</div>
             </div>
 						{% endfor %}

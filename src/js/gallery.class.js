@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import Swiper from 'swiper';
-import Parallax from 'parallax-js';
+// import Parallax from 'parallax-js';
+
+import { Parallax } from './parallax.class.js';
 
 const prependZero = (digit) => (digit < 10 && '0') + digit;
 const paginationCustomRender = (_, current, total) => {
@@ -95,10 +97,8 @@ export class Gallery {
     this.galleries[galleryLargeImages].params.control = this.galleries[galleryLargeCards];
     this.galleries[galleryLargeCards].params.control = this.galleries[galleryLargeImages];
 
-		this.grid.parallax = new Parallax(this.grid.$gallery[0], {
-		  pointerEvents: true
-		});
-		this.grid.parallax.disable();
+		this.grid.parallax = new Parallax('.parallax-wrapper');
+		console.log(this.grid.parallax);
 
     this.bindEvents();
 	}
