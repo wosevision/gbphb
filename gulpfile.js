@@ -169,7 +169,7 @@ gulp.task('templates', function() {
 	},{
 		title: 'Get Started',
 		feature: true,
-		href: 'index.html'
+		href: 'contact.html'
 	}];
 	return gulp.src(paths.html)
 		.pipe($.data(file => frontMatter(String(file.contents)).attributes))
