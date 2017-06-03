@@ -1,0 +1,28 @@
+---
+heroBlock:
+  small: true
+  bg: assets/img/banner/blog-banner.jpg
+  header: Aliquam aliquet vel
+  subheader: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+contentBlocks:
+  - title: Contact
+    modules:
+      - type: block-intro
+        title: Contact
+        noCounter: true
+        text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Suspendisse potenti.
+        address: true
+      - type: contact-form-large
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{{ renderContentBlock(block) }}
+{%- endfor %}
+
+{%- endblock %}
