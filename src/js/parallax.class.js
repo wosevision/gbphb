@@ -3,7 +3,7 @@ import $ from 'jquery';
 export class Parallax {
 	constructor(selector, {
 		focalPoint = 'window',
-		perspectiveFactor = 10
+		perspectiveFactor = 150
 	} = {}) {
 		this.$el = $(selector);
 		this.$window = $(window);
