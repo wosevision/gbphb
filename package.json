@@ -27,8 +27,10 @@
     "front-matter": "^2.1.2",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-changed": "^3.1.0",
     "gulp-cssnano": "^2.1.0",
     "gulp-data": "^1.2.1",
+    "gulp-favicons": "^2.2.7",
     "gulp-header": "^1.7.1",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.5.0",
@@ -47,9 +49,8 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
-    "gulp-changed": "^3.1.0",
+    "gulp-inject": "^4.2.0",
     "jquery": "^3.2.1",
-    "parallax-js": "https://github.com/wagerfield/parallax",
     "swiper": "^3.4.2"
   },
   "description": "A front-end theme based on Bootstrap 4 using Gulp and Sass.",

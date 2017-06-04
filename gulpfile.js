@@ -44,8 +44,10 @@ const sources = {
 	js: path.join(base.src, 'js'),
 	img: path.join(base.src, 'img'),
 	fonts: path.join(base.src, 'fonts'),
+	favicon: path.join(base.src, 'favicon.png'),
 	// destinations
 	assets: path.join(base.dist, 'assets'),
+	html: path.join(base.dist, '*.html')
 }
 const paths = {
 	// sources
@@ -60,7 +62,8 @@ const paths = {
 	scriptDest: path.join(sources.assets, 'js'),
 	imageDest: path.join(sources.assets, 'img'),
 	fontsDest: path.join(sources.assets, 'fonts'),
-}
+	faviconsDest: path.join(base.dist, 'favicons')
+};
 
 /**
  * Generate CSS assets from Sass source files. This task:
@@ -192,6 +195,60 @@ gulp.task('images', function() {
 		.pipe(gulp.dest(paths.imageDest));
 });
 
+/**
+ * Generate favicons for all platforms.
+ */
+gulp.task('generate-favicons', ['templates'], function () {
+    return gulp.src(sources.favicon).pipe($.favicons({
+      appName: 'GBPH',
+      appDescription: 'We build high efficiency homes. Let\'s build one together.',
+      background: '#fad030',
+      path: 'favicons/',
+      display: 'standalone',
+      orientation: 'portrait',
+      version: 1.0,
+      logging: false,
+      online: false,
+      html: 'favicon.html',
+      pipeHTML: true,
+      replace: true
+    }))
+    .on('error', $.notify.onError('Your favicons have insubordinated:\n<%= error.message %>'))
+    .pipe(gulp.dest(paths.faviconsDest));
+});
+
+/**
+ * Inject the generated `favicon.html` into HTML files.
+ * Requires the `favicon-generate` task to run first.
+ */
+const faviconsTemplate = path.join(paths.faviconsDest, 'favicon.html');
+
+gulp.task('inject-favicons', ['generate-favicons'], function() {
+  gulp.src(sources.html)
+	  .pipe($.inject(gulp.src([faviconsTemplate]), {
+	    starttag: '<!-- inject:head:{{ext}} -->',
+	    transform(filePath, file) {
+	      return file.contents.toString('utf8'); // return file contents as string
+	    }
+	  }))
+	  .pipe(gulp.dest(base.dist));
+});
+
+/**
+ * Remove the generated favicon.html file.
+ * Requires the `inject-favicon` task to run first.
+ */
+gulp.task('clean-favicons-template', ['inject-favicons'], function() {
+  return del([faviconsTemplate]);
+});
+
+/**
+ * The default task will generate all favicon files, including graphics and
+ * configs. It will also build the asset link and meta tags in `favicon.html`,
+ * inject them into `index.html`, and remove the generated file.
+ */
+gulp.task('favicons', ['clean-favicons-template']);
+
 gulp.task('fonts', function() {
   return gulp.src(paths.fonts)
     .pipe($.changed(paths.fontsDest))
@@ -220,4 +277,8 @@ gulp.task('default', ['images', 'css', 'fonts', 'js', 'templates', 'browser-sync
 	gulp.watch(paths.fonts, ['fonts']);
 	gulp.watch([paths.html, paths.njk], ['templates']);
 	watch();
+});
+
+gulp.task('build', ['clean'], function () {
+	return gulp.run(['images', 'css', 'fonts', 'js', 'templates', 'favicons']);
 });
