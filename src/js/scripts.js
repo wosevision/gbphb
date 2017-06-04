@@ -2,6 +2,7 @@ import $ from 'jquery';
 
 import { Nav } from './nav.class';
 import { Gallery } from './gallery.class';
+import { GoogleMap } from './map.class';
 
 $(() => {
 	const nav = new Nav('#header', {
@@ -25,4 +26,6 @@ $(() => {
 			closer: '.gallery-grid-display-close'
 		}
 	});
+
+	const map = new GoogleMap('#contact-map');
 });
