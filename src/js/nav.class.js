@@ -22,11 +22,12 @@ export class Nav {
 			speed: hero.speed
 		};
 
-		this.navScrolled = this.navPassedContainer || false;
-
 		this.bindEvents();
 	}
 
+	get isDesktop() {
+		return window.matchMedia("(min-width: 992px)").matches;
+	}
 	get bgOffset() {
 		return this.hero.$background.offset().top;
 	}
@@ -40,7 +41,7 @@ export class Nav {
 		return this.hero.$container.position().top + this.hero.$container.outerHeight(true);
 	}
 	get navPassedContainer() {
-		return this.scrollTop > this.bgContainerBottom;
+		return this.scrollTop > (this.isDesktop ? this.bgContainerBottom : 0);
 	}
 	
 	onToggle() {
@@ -53,12 +54,10 @@ export class Nav {
 		this.hero.$background.css({ transform, opacity });
 
 		if (!this.navScrolled && this.navPassedContainer) {
-			console.log('nav scrolled');
 			this.$nav.addClass(this.scrolledClass);
 			this.navScrolled = true;
 		}
 		if (this.navScrolled && !this.navPassedContainer) {
-			console.log('nav unscrolled');
 			this.$nav.removeClass(this.scrolledClass);
 			this.navScrolled = false;
 		}
@@ -71,6 +70,6 @@ export class Nav {
 		this.$toggler.on('click', this.onToggle);
 		this.$window.on('scroll resize', this.onScroll);
 
-		this.$window.trigger('scroll');
+		this.onScroll();
 	}
 }
