@@ -28,7 +28,7 @@
 			&:focus, 
 			&:hover {
 				.arrow {
-					color: $secondary-color;
+					color: $primary-color-dark-1;
 				}
 			}
 		}
@@ -91,6 +91,7 @@
 		}
 		&-header, &-block {
 			background-color: $primary-color-tint-2;
+			transition: 0.35s;
 		}
 	}
 	.gallery-cards {
@@ -100,13 +101,19 @@
 		.swiper-slide {
 			width: 100%;
 			height: 100%;
-			background-size: 100%;
-			background-color: $primary-color-tint-2;
+			opacity: 0 !important;
+			// transition: 0.35s;
+			&-active {
+				opacity: 1 !important;
+			}
 		}
 	}
 
 	.card-title a {
 		transition: 0.2s;
+		&:hover {
+			color: $primary-color-dark-1;
+		}
 	}
 
 	&:hover {
@@ -115,8 +122,12 @@
 				background-size: 105%;
 			}
 		}
+		.card-header,
+		.card-block {
+			background-color: $secondary-color;
+		}
 		.card-title a {
-			color: $secondary-color;
+			border-bottom: 1px dashed;
 		}
 	}
 }
@@ -147,7 +158,9 @@
 			overflow: visible;
 		}
 		&-slide {
+			padding: 5px;
 			max-width: 400px;
+			transition: 0.35s;
 
 			@media (max-width: $sm - 1) {
 				max-width: 300px;
@@ -156,15 +169,20 @@
 			.card-header a,
 			.cta-link {
 				transition: 0.2s;
+
+				&:hover {
+					color: $primary-color-dark-1;
+				}
 			}
 
 			&:hover {
-				.card-header a,
-				.cta-link {
-					color: $secondary-color;
-				}
+				background-color: $secondary-color;
+
 				.card-image img {
 					transform: scale(1.05);
+				}
+				.card-header a {
+					border-bottom: 1px dashed;
 				}
 			}
 		}

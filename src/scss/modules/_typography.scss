@@ -175,13 +175,15 @@ address {
 
 .cta-link {
 	position: relative;
+	margin-left: 1em;
+
 	&:before {
 		@include icon();
 		font-size: 1.25em;
 		line-height: inherit;
 		position: absolute;
 		display: block;
-		right: 100%;
+		left: -1em;
 		content: 'keyboard_arrow_right';
 	}
 }
