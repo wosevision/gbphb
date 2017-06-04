@@ -1,9 +1,9 @@
 .swiper {
 	&-container {
 		width: 100%;
-		height: 300px;
 		margin-left: auto;
 		margin-right: auto;
+		height: auto;
 	}
 	&-slide {
 		background-size: cover;
@@ -96,8 +96,8 @@
 	}
 	.gallery-cards {
 		box-sizing: border-box;
-		height: 200px;
 		padding: 10px 0;
+		
 		.swiper-slide {
 			width: 100%;
 			height: 100%;
