@@ -3,9 +3,10 @@ import $ from 'jquery';
 import { styles } from './map-styles.constant';
 
 export class GoogleMap {
-	constructor(selector) {
+	constructor(selector, center) {
 		this.scriptFetched = !!(window.google) || false;
 		this.mapContainer = $(selector)[0];
+		this.center = center;
 		this.fetchScript();
 	}
 	fetchScript() {
@@ -15,7 +16,7 @@ export class GoogleMap {
 		  .fail(this.handleError);
 	}
 	init() {
-		const center = this.center = new google.maps.LatLng(43.6532,-79.3832);
+		const center = this.center = new google.maps.LatLng(this.center);
     this.map = new google.maps.Map(this.mapContainer, {
       scrollwheel: false,
 		  disableDefaultUI: true,

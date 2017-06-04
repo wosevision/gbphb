@@ -27,5 +27,8 @@ $(() => {
 		}
 	});
 
-	const map = new GoogleMap('#contact-map');
+	const map = new GoogleMap('#contact-map', {
+		lat: 43.6532,
+		lng: -79.3832
+	});
 });
