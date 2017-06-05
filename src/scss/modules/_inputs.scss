@@ -146,3 +146,18 @@ textarea.form-fancy {
 		}
 	}
 }
+
+
+// VALIDATION
+
+.has-danger {
+	.form-control-danger {
+		&.form-fancy {
+			padding-right: 2.25rem;
+
+			&:not(:focus) + .form-fancy-decor {
+				background-color: $brand-danger;
+			}
+		}
+	}
+}
