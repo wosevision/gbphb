@@ -77,6 +77,30 @@ const galleryConfigs = {
 };
 
 export class Gallery {
+	/**
+	 * The `Gallery` constructor initializes all galleries present
+	 * on a page; it takes a single configuration object as its
+	 * parameter, which can contain three sub-configurations (one
+	 * for each available gallery type).
+	 * 
+	 * The types are:
+	 * 
+	 * 1. `small`
+	 * 	- No configuration options
+	 * 2. `large`
+	 * 	- No configuration options
+	 * 3. `grid`
+	 * 	- `container`: forms the outer overlay container; *default* `'body'`
+	 * 	- `gallery`: element to initialize gallery on; *default* `'.gallery-grid-display .swiper-container'`
+	 * 	- `openClass`: class to add to container when open; *default* `'gallery-grid-display-open'`
+	 * 	- `opener`: element responsible for opening overlay; *default* `'.gallery-grid-image'`
+	 * 	- `closer`:  element responsible for closing overlay; *default* `'.gallery-grid-display-close'`
+	 * 	
+	 * @param  {object} options.small Small gallery subconfig
+	 * @param  {object} options.large Large gallery subconfig
+	 * @param  {object} options.grid  Grid gallery subconfig
+	 * @return {Gallery}              New gallery object
+	 */
 	constructor({
 		small,
 		large,

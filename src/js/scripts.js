@@ -1,8 +1,8 @@
 import $ from 'jquery';
 
-import { Nav } from './nav.class';
-import { Gallery } from './gallery.class';
-import { GoogleMap } from './map.class';
+import { Nav } from './lib/nav.class';
+import { Gallery } from './lib/gallery.class';
+import { GoogleMap } from './lib/map.class';
 
 $(() => {
 	const nav = new Nav('#header', {
