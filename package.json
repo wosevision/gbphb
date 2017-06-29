@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
+    "documentjs": "^0.4.4",
     "gulp-inject": "^4.2.0",
     "jquery": "^3.2.1",
     "swiper": "^3.4.2"

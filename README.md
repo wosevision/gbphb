@@ -94,7 +94,7 @@ This project's Sass files are structured so that:
 
 ## Template and partials
 
-The HTML layouts are built dynamically using Gulp and Nunjucks to prevent code duplication, with YAML front-matter for data injection. The directory structure, in `src`, is:
+The HTML layouts are built dynamically using Gulp and Nunjucks to prevent code duplication, with [YAML front-matter](http://simpleprimate.com/jekyll-for-designers/blog/front-matter/) for data injection. The directory structure, in `src`, is:
 
 ```shell
 ...

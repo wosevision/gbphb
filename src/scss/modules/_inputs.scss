@@ -1,3 +1,16 @@
+/**
+ * @stylesheet modules/_inputs.scss Inputs
+ * @parent style
+ *
+ * Form and input styles (normal and "fancy").
+ */
+
+/**
+ * @styles contact-form Contact form
+ *
+ * Fancy contact form styles.
+ * @demo demos/form/contact-form.html
+ */
 %form-fancy-decor {
 	position: absolute;
 	z-index: -1;
@@ -30,6 +43,12 @@
 	text-transform: uppercase;
 }
 
+/**
+ * @styles contact-form-large Large contact form
+ *
+ * Full contact form with effects and map.
+ * @demo demos/form/contact-form-large.html
+ */
 .form-fancy {
 	padding-left: 5px;
 	padding-right: 5px;

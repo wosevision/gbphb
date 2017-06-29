@@ -1,3 +1,16 @@
+/**
+ * @stylesheet modules/_hero.scss Hero
+ * @parent style
+ *
+ * Above the fold "hero" layout styles.
+ */
+
+/**
+ * @styles hero Hero
+ *
+ * Call to action block and parallax banner image.
+ * @demo demos/content/hero.html
+ */
 .hero {
 	position: relative;
 	padding-top: 270px;

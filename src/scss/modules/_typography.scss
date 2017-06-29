@@ -1,4 +1,10 @@
 // GLOBAL
+/**
+ * @stylesheet modules/_typography.scss Typography
+ * @parent style
+ *
+ * Main base typography and icon styles.
+ */
 
 h1,
 .header-1 {
@@ -95,6 +101,12 @@ a {
 	}
 }
 
+/**
+ * @styles blockquote Blockquote
+ *
+ * Called out quotation text.
+ * @demo demos/content/blockquote.html
+ */
 blockquote, 
 .blockquote {
 	padding-left: 1rem;

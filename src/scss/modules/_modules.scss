@@ -1,7 +1,20 @@
+/**
+ * @stylesheet modules/_modules.scss Modules
+ * @parent style
+ *
+ * Base building blocks for layout "modules".
+ */
+
 body {
 	counter-reset: modulenum;
 }
 
+/**
+ * @styles block-intro Block intro
+ *
+ * Auto-incrementing counter and large paragraph text box.
+ * @demo demos/content/block-intro.html
+ */
 .content-block {
 	padding-top: 100px;
 	padding-bottom: 100px;

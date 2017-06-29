@@ -1,3 +1,10 @@
+/**
+ * @stylesheet modules/_gallery.scss Gallery
+ * @parent style
+ *
+ * Custom GBPH galleries: large, small and grid.
+ */
+
 .swiper {
 	&-container {
 		width: 100%;
@@ -57,6 +64,12 @@
 	}
 }
 
+/**
+ * @styles gallery-large Large gallery
+ *
+ * Full image with sliding text box.
+ * @demo demos/gallery/gallery-large.html
+ */
 .gallery-large {
 	.gallery-top {
 	}
@@ -132,6 +145,12 @@
 	}
 }
 
+/**
+ * @styles gallery-small Small gallery
+ *
+ * Sliding card gallery with image and text.
+ * @demo demos/gallery/gallery-small.html
+ */
 .gallery-small {
 	.card {
 		&-header {
@@ -195,6 +214,13 @@
 	}
 }
 
+/**
+ * @styles gallery-grid Grid gallery
+ *
+ * Masonry-style grid image only gallery with
+ * clickable images (expand on click).
+ * @demo demos/gallery/gallery-grid.html
+ */
 .gallery-grid {
 	&-image {
 		position: relative;
