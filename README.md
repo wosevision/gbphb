@@ -137,3 +137,20 @@ The pages themselves are generated from facsimiles inside the `src/pages` direct
 ```
 
 In order for a page to be build into the final `app` distribution directory, it must be defined in the `src/pages` directory.
+
+## Documentation
+
+A small styleguide for this project can be generated using the included DocumentCSS definitions.
+
+To generate the styleguide, install DocumentJS (`npm install documentjs`) if the optional dependency was not installed along with the project dependencies and run it from the project's root:
+
+```shell
+# run the generator
+./node_modules/.bin/documentjs -w
+
+# serve the documentation
+python -m SimpleHTTPServer 4200
+
+# open the served docs
+open http://localhost:4200/styleguide
+```

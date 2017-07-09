@@ -31,6 +31,7 @@
     "gulp-data": "^1.2.1",
     "gulp-favicons": "^2.2.7",
     "gulp-header": "^1.7.1",
+    "gulp-inject": "^4.2.0",
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-notify": "^3.0.0",
@@ -46,10 +47,11 @@
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.9.0"
   },
+  "optionalDependencies": {
+    "documentjs": "^0.4.4"
+  },
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
-    "documentjs": "^0.4.4",
-    "gulp-inject": "^4.2.0",
     "jquery": "^3.2.1",
     "swiper": "^3.4.2"
   },
