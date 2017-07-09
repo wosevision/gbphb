@@ -4,18 +4,22 @@
 			<div class="row">
 				<div class="col-sm-10 offset-sm-2">
 						<!-- BEGIN GALLERY CARDS -->
-						<div class="swiper-container gallery-cards">
+						<div class="swiper-container gallery-cards cards">
 							<div class="swiper-wrapper">
 								{% for slide in module.slides %}
-								<div class="swiper-slide">
+								<div class="card-container swiper-slide">
 									<div class="card-image">
 										<img src="{{ slide.image }}" />
 									</div>
-									<div class="swiper-no-swiping">
+									<div class="card-content card-content-cta swiper-no-swiping">
 										<span class="category-label">Category</span>
 										<h3 class="card-header"><a href="#">{{ slide.heading }}</a></h3>
 										<p>{{ slide.body }}</p>
-										<p><a href="#" class="cta-link">{{ slide.button }}</a></p>
+										<a href="#" class="cta-arrow">
+											<svg class="arrow arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+												<use class="arrow-img" xlink:href="#arrow"/>
+											</svg>
+										</a>
 									</div>
 								</div>
 								{% endfor %}

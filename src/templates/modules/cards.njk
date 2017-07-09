@@ -1,0 +1,26 @@
+<div class="row">
+	<div class="col-sm-12">
+		<!-- BEGIN CARDS -->
+		<div class="cards cards-stacked row">
+			{% for card in module.cards %}
+			<div class="col-md-4 col-sm-6 d-flex">
+				<div class="card-container">
+					<div class="card-image">
+						<img src="{{ card.image }}" />
+					</div>
+					<div class="card-content card-content-cta">
+						<h3 class="card-header"><a href="#">{{ card.heading }}</a></h3>
+						<p>{{ card.body }}</p>
+						<a href="#" class="cta-arrow">
+							<svg class="arrow arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+								<use class="arrow-img" xlink:href="#arrow"/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<!-- END CARDS -->
+	</div>
+</div>

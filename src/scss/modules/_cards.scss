@@ -1,5 +1,139 @@
-.card {
-	&-header {
-		
+.cards {
+	.card {
+		&-container {
+			padding: 5px;
+			transition: 0.35s;
+
+			.card-header a,
+			.cta-link {
+				transition: 0.2s;
+
+				&:hover {
+					color: $primary-color-dark-1;
+				}
+			}
+
+			&:hover {
+				background-color: $secondary-color;
+
+				.card-image img,
+				.card-image .img {
+					transform: scale(1.05);
+				}
+				.card-header a {
+					border-bottom: 1px dashed;
+				}
+			}
+		}
+
+		&-header {
+			border: 0;
+			border-radius: 0;
+			padding: 0;
+			margin-bottom: 1.1875rem;
+			background: none;
+		}
+		&-image {
+			position: relative;
+			overflow: hidden;
+			margin-bottom: 1.1875rem;
+			background-color: $primary-color-tint-3;
+
+			img {
+				width: 100%;
+				transition: 0.4s;
+			}
+
+			.img {
+				height: 100%;
+				width: 100%;
+				background-size: cover;
+				background-position: center;
+				transition: 0.4s;
+			}
+		}
+
+		&-content {
+			position: relative;
+
+			&-cta {
+				padding-bottom: 30px;
+
+				.cta-arrow {
+					position: absolute;
+					bottom: 5px;
+					right: 5px;
+					transform: translateX(-5px);
+					transition: 0.3s;
+
+					&:hover {
+						transform: translateX(0);
+					}
+				}
+			}
+		}
+	}
+
+	.category-label {
+		margin-bottom: 0.1875rem;
+	}
+
+	&-stacked {
+		.card-container {
+			display: flex;
+			flex-direction: column;
+			margin-bottom: 30px;
+		}
+		.card-image {
+			flex: 1 0 auto;
+		}
+		.card-content-cta {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+	}
+
+	&-overlap {
+		.card {
+			&-container {
+				margin-bottom: 0;
+				padding: 0;
+				
+				&:hover {
+					background-color: transparent;
+
+					.card-content {
+						background-color: $secondary-color;
+					}
+				}
+			}
+
+			&-image {
+				margin-bottom: 0;
+				height: 300px;
+				transition: 0.2s;
+
+				@media (max-width: $sm - 1) {
+					height: 200px;
+				}
+			}
+
+			&-content {
+				align-self: center;
+				position: relative;
+				top: -40px;
+				padding: 30px 15px 10px;
+				width: 80%;
+				background-color: $primary-color-tint-3;
+				transition: 0.2s;
+
+				@media (max-width: $sm - 1) {
+					top: -20px;
+					padding: 20px 10px 10px;
+					width: 95%;
+				}
+			}
+		}
 	}
 }

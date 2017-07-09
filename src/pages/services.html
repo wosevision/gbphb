@@ -1,0 +1,42 @@
+---
+heroBlock:
+  small: true
+  bg: assets/img/banner/service-banner.jpg
+  header: Services
+  subheader: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+contentBlocks:
+  - title: Services
+    modules:
+      - type: cards
+        cards:
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Wall Contrsuction
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            button: Learn more
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Foundation
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Mechanical
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+          - image: assets/img/gallery/gallery-house-1.jpg
+            heading: Magical
+            body: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquet vel nisi et aliquet. Phasellus vitae dignissim risus, at dignissim erat.
+            button: Learn more
+---
+
+
+{%- extends "layout.njk" %}
+
+{%- block content %}
+
+{%- from "block.njk" import renderContentBlock %}
+{%- for block in contentBlocks %}
+{%- if not block.feature %}
+{{ renderContentBlock(block) }}
+{%- endif %}
+{%- endfor %}
+
+{%- endblock %}
