@@ -1,8 +1,8 @@
-<section class="hero{{ " hero-large" if heroBlock.large }}{{ " hero-small" if heroBlock.small }}">
+<section class="hero{{ " hero-large" if heroBlock.large }}{{ " hero-small" if heroBlock.small }}{{ " hero-center" if heroBlock.center }}">
 	<div id="hero-image" class="hero-image" style="background-image: url('{{ heroBlock.bg }}')"></div>
 	<div class="container">
-		<div class="row">
-			<div class="{{ "col-lg-7 col-md-9" if heroBlock.large }}{{ "col-xl-5 col-lg-7 col-md-9" if heroBlock.small }}">
+		<div class="row{{ " align-items-center justify-content-center" if heroBlock.center }}">
+			<div class="{{ "col-lg-7 col-md-9" if heroBlock.large }}{{ "col-xl-5 col-lg-7 col-md-9" if heroBlock.small }}{{ "col-lg-6 col-md-8 col-sm-10" if heroBlock.center }}">
 				<div id="hero-block" class="hero-block">
 					<h1>{{ heroBlock.header }}</h1>
 					<span class="subheader">{{ heroBlock.subheader }}</span>
