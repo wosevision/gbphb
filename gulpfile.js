@@ -162,10 +162,10 @@ gulp.task('templates', function() {
   	href: 'index.html'
 	},{
 		title: 'Services',
-		href: 'service.html'
+		href: 'services.html'
 	},{
 		title: 'Projects',
-		href: 'project.html'
+		href: 'projects.html'
 	},{
 		title: 'Blog',
 		href: 'blog.html'

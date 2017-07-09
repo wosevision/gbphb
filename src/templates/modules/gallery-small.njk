@@ -9,7 +9,7 @@
 								{% for slide in module.slides %}
 								<div class="card-container swiper-slide">
 									<div class="card-image">
-										<img src="{{ slide.image }}" />
+										<div class="img" style="background-image:url({{ slide.image }})"></div>
 									</div>
 									<div class="card-content card-content-cta swiper-no-swiping">
 										<span class="category-label">Category</span>
