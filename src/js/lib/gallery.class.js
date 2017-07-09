@@ -121,21 +121,20 @@ export class Gallery {
     this.galleries[galleryLargeImages].params.control = this.galleries[galleryLargeCards];
     this.galleries[galleryLargeCards].params.control = this.galleries[galleryLargeImages];
 
-		this.grid.parallax = new Parallax('.parallax-wrapper');
-		console.log(this.grid.parallax);
+		// this.grid.parallax = new Parallax('.parallax-wrapper');
 
     this.bindEvents();
 	}
 
 	openGridGallery() {
 		this.grid.$container.addClass(this.grid.openClass);
-		this.grid.parallax.enable();
+		// this.grid.parallax.enable();
 	}
 
 	closeGridGallery(event) {
 		event.stopPropagation();
 		this.grid.$container.removeClass(this.grid.openClass);
-		this.grid.parallax.disable();
+		// this.grid.parallax.disable();
 	}
 
 	bindEvents() {
