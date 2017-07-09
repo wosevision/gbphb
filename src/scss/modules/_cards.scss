@@ -36,8 +36,13 @@
 		&-image {
 			position: relative;
 			overflow: hidden;
+			height: 200px;
 			margin-bottom: 1.1875rem;
 			background-color: $primary-color-tint-3;
+
+			@media (max-width: $sm - 1) {
+				height: 170px;
+			}
 
 			img {
 				width: 100%;
